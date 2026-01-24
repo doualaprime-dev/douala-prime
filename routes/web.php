@@ -5,6 +5,7 @@ use App\Livewire\Customer\OrderDetails;
 use App\Livewire\Customer\Profile as CustomerProfile;
 use App\Livewire\HomePage;
 use App\Livewire\Orders;
+use App\Livewire\ProductDetails;
 use App\Livewire\ProductListing;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
@@ -16,6 +17,7 @@ use Laravel\Fortify\Features;
 Route::get('/', HomePage::class)->name('home');
 
 Route::get('products', ProductListing::class)->name('products.index');
+Route::get('products/{slug}', ProductDetails::class)->name('products.show');
 
 // Protected customer routes
 Route::middleware('auth:customer')->group(function(){
