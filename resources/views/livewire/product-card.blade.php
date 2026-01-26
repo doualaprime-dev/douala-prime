@@ -40,7 +40,7 @@
             <p class="text-xs text-gray-500 mb-1">{{ $product->category->name }}</p>
 
             <!-- Product Name -->
-            <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition">
+            <h3 class="font-semibold text-sm text-gray-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition">
                 {{ $product->name }}
             </h3>
 
@@ -65,14 +65,14 @@
             @endif
 
             <!-- Price -->
-            <div class="flex items-center gap-2">
-                <span class="text-xl font-bold text-gray-900">
-                    {{ number_format($product->price, 2) }} F CFA
+            <div class="flex items-center gap-1">
+                <span class="text-sm font-bold text-gray-900">
+                    {{ number_format($product->price, 3) }} FCFA
                 </span>
 
                 @if ($product->compare_price)
-                    <span class="text-sm line-through text-gray-500">
-                        {{ number_format($product->price, 2) }} F CFA
+                    <span class="text-xs line-through text-gray-500">
+                        {{ number_format($product->compare_price, 3) }} FCFA
                     </span>
                 @endif
             </div>
@@ -82,13 +82,13 @@
     <!-- Add to Cart Button -->
     @if ($product->stock_status === 'in_stock')
         <div class="p-4 pt-0">
-            <button wire:click="addToCart" class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition">
+            <button wire:click="addToCart" class="w-full text-sm cursor-pointer bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition">
                 Add to Cart
             </button>
         </div>
     @else
         <div class="p-4 pt-0">
-            <button disabled class="w-full bg-gray-300 text-gray-500 py-2 px-4 rounded-lg cursor-not-allowed font-medium">
+            <button disabled class="w-full text-sm bg-gray-300 text-gray-500 py-2 px-4 rounded-lg cursor-not-allowed font-medium">
                 Out of Stock
             </button>
         </div>

@@ -1,5 +1,7 @@
 <?php
 
+use App\Livewire\CartPage;
+use App\Livewire\CheckoutPage;
 use App\Livewire\Customer\Dashboard;
 use App\Livewire\Customer\OrderDetails;
 use App\Livewire\Customer\Profile as CustomerProfile;
@@ -18,9 +20,11 @@ Route::get('/', HomePage::class)->name('home');
 
 Route::get('products', ProductListing::class)->name('products.index');
 Route::get('products/{slug}', ProductDetails::class)->name('products.show');
+Route::get('/cart', CartPage::class)->name('cart.index');
 
 // Protected customer routes
 Route::middleware('auth:customer')->group(function(){
+    Route::get('/checkout', CheckoutPage::class)->name('checkout');
     Route::get('/my-account', Dashboard::class)->name('customer.dashboard');
 
     Route::get('/my-account/orders', Orders::class)->name('customer.orders');
