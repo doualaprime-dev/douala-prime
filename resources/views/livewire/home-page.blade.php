@@ -60,7 +60,7 @@
 
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
                 @foreach($featuredProducts as $product)
-                    <livewire:product-card :product="$product" :key="$product->id"  />
+                    <livewire:product-card :product="$product" :key="$product->id" lazy />
                 @endforeach
             </div>
         </div>
@@ -79,7 +79,7 @@
 
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
                 @foreach($newArrivals as $product)
-                    <livewire:product-card :product="$product" :key="'new-' . $product->id"  />
+                    <livewire:product-card :product="$product" :key="'new-' . $product->id" lazy  />
                 @endforeach
             </div>
         </div>
@@ -120,7 +120,7 @@
         </div>
     </section>
 
-    <!-- Categories Section -->
+    <!-- Brand Section -->
     <section class="py-16 bg-white">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold text-gray-900 mb-8">Shop by Brand</h2>
@@ -149,4 +149,231 @@
         </div>
     </section>
 
+    <!-- Réfrigérateurs -->
+    <section class="py-16 bg-white">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-3xl font-bold text-gray-900">Réfrigérateurs</h2>
+                <a href="{{ route('products.index', ['sort' => 'newest']) }}"
+                   class="text-blue-600 hover:text-indigo-700 font-medium">
+                    View All →
+                </a>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                @foreach($refrigerateurs as $product)
+                    <livewire:product-card :product="$product" :key="'new-' . $product->id" lazy  />
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    <!-- Congélateurs -->
+    <section class="py-16 bg-white">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-3xl font-bold text-gray-900">Congélateurs</h2>
+                <a href="{{ route('products.index', ['sort' => 'newest']) }}"
+                   class="text-blue-600 hover:text-indigo-700 font-medium">
+                    View All →
+                </a>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                @foreach($congelateurs as $product)
+                    <livewire:product-card :product="$product" :key="'new-' . $product->id" lazy  />
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    <!-- Cuisinières -->
+    <section class="py-16 bg-white">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-3xl font-bold text-gray-900">Cuisinières</h2>
+                <a href="{{ route('products.index', ['sort' => 'newest']) }}"
+                   class="text-blue-600 hover:text-indigo-700 font-medium">
+                    View All →
+                </a>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                @foreach($cuisinieres as $product)
+                    <livewire:product-card :product="$product" :key="'new-' . $product->id" lazy  />
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    <!-- Machines à laver -->
+    <section class="py-16 bg-white">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-3xl font-bold text-gray-900">Machines à laver</h2>
+                <a href="{{ route('products.index', ['sort' => 'newest']) }}"
+                   class="text-blue-600 hover:text-indigo-700 font-medium">
+                    View All →
+                </a>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                @foreach($machines_a_laver as $product)
+                    <livewire:product-card :product="$product" :key="'new-' . $product->id" lazy  />
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    <!-- Climatiseurs -->
+    <section class="py-16 bg-white">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-3xl font-bold text-gray-900">Climatiseurs</h2>
+                <a href="{{ route('products.index', ['sort' => 'newest']) }}"
+                   class="text-blue-600 hover:text-indigo-700 font-medium">
+                    View All →
+                </a>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                @foreach($climatiseurs as $product)
+                    <livewire:product-card :product="$product" :key="'new-' . $product->id" lazy  />
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    <!-- Télévisions -->
+    <section class="py-16 bg-white">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-3xl font-bold text-gray-900">Télévisions</h2>
+                <a href="{{ route('products.index', ['sort' => 'newest']) }}"
+                   class="text-blue-600 hover:text-indigo-700 font-medium">
+                    View All →
+                </a>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                @foreach($televisions as $product)
+                    <livewire:product-card :product="$product" :key="'new-' . $product->id" lazy  />
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    <!-- Appareils de cuisson -->
+    <section class="py-16 bg-white">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-3xl font-bold text-gray-900">Appareils de cuisson</h2>
+                <a href="{{ route('products.index', ['sort' => 'newest']) }}"
+                   class="text-blue-600 hover:text-indigo-700 font-medium">
+                    View All →
+                </a>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                @foreach($appareils_de_cuisson as $product)
+                    <livewire:product-card :product="$product" :key="'new-' . $product->id" lazy  />
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    <!-- Blender et hachoir -->
+    <section class="py-16 bg-white">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-3xl font-bold text-gray-900">Blender et hachoir </h2>
+                <a href="{{ route('products.index', ['sort' => 'newest']) }}"
+                   class="text-blue-600 hover:text-indigo-700 font-medium">
+                    View All →
+                </a>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                @foreach($blender_et_hachoir as $product)
+                    <livewire:product-card :product="$product" :key="'new-' . $product->id" lazy  />
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    <!-- Appareils de patisserie et jus -->
+    <section class="py-16 bg-white">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-3xl font-bold text-gray-900">Appareils de patisserie et jus</h2>
+                <a href="{{ route('products.index', ['sort' => 'newest']) }}"
+                   class="text-blue-600 hover:text-indigo-700 font-medium">
+                    View All →
+                </a>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                @foreach($appareils_de_patisserie_et_jus as $product)
+                    <livewire:product-card :product="$product" :key="'new-' . $product->id" lazy  />
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    <!-- Appareils pour petit déj -->
+    <section class="py-16 bg-white">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-3xl font-bold text-gray-900">Appareils pour petit déj</h2>
+                <a href="{{ route('products.index', ['sort' => 'newest']) }}"
+                   class="text-blue-600 hover:text-indigo-700 font-medium">
+                    View All →
+                </a>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                @foreach($appareils_pour_petit_dej as $product)
+                    <livewire:product-card :product="$product" :key="'new-' . $product->id" lazy  />
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    <!-- Appareils de ménage -->
+    <section class="py-16 bg-white">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-3xl font-bold text-gray-900">Appareils de ménage</h2>
+                <a href="{{ route('products.index', ['sort' => 'newest']) }}"
+                   class="text-blue-600 hover:text-indigo-700 font-medium">
+                    View All →
+                </a>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                @foreach($appareils_de_menage as $product)
+                    <livewire:product-card :product="$product" :key="'new-' . $product->id" lazy  />
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    <!-- Audio & Hifi -->
+    <section class="py-16 bg-white">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-3xl font-bold text-gray-900">Audio & Hifi</h2>
+                <a href="{{ route('products.index', ['sort' => 'newest']) }}"
+                   class="text-blue-600 hover:text-indigo-700 font-medium">
+                    View All →
+                </a>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                @foreach($audio_et_hifi as $product)
+                    <livewire:product-card :product="$product" :key="'new-' . $product->id" lazy  />
+                @endforeach
+            </div>
+        </div>
+    </section>
 </div>

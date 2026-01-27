@@ -9,6 +9,11 @@ class ProductCard extends Component
 {
     public Product $product;
 
+    public function placeholder()
+    {
+        return view('livewire.skeleton.items-skeleton');
+    }
+
     public function addToCart()
     {
         if ($this->product->stock_status !== 'in_stock') {
