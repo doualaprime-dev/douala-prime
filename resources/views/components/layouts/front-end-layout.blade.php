@@ -23,6 +23,21 @@
             [x-cloak] {
                 display: none !important;
             }
+            .container {
+                width: 100%;
+                margin: auto;
+            }
+            .swiper {
+                width: 100%;
+            }
+            .swiper-slide {
+                text-align: center;
+                background: #eee;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 18px;
+            }
         </style>
 
         @filamentStyles
@@ -36,7 +51,7 @@
                     <!-- Logo -->
                     <div class="flex items-center">
                         <a href="{{ route('home') }}" class="text-2xl font-bold text-yellow-500">
-                            {{ config('app.name', 'E-Commerce') }}
+                            <img src="{{ asset('images/logo.png') }}" alt="Promo" class="w-25 h-15" />
                         </a>
                     </div>
 
@@ -78,13 +93,13 @@
                             </a>
                         </li>
 
-                        @foreach (\App\Models\Category::active()->sorted()->limit(5)->get() as $category)
+                        {{-- @foreach (\App\Models\Category::active()->sorted()->limit(5)->get() as $category)
                             <li>
                                 <a href="{{ route('products.index', ['category' => $category->slug]) }}" class="text-gray-700 hover:text-yellow-500 font-medium">
                                     {{ $category->name }}
                                 </a>
                             </li>
-                        @endforeach
+                        @endforeach --}}
                     </ul>
                 </nav>
             </div>
