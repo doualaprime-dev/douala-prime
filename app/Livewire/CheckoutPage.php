@@ -2,13 +2,17 @@
 
 namespace App\Livewire;
 
+use App\Mail\OrderConfirmation;
 use App\Models\Address;
 use App\Models\Coupon;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Setting;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
+use Stripe\Stripe;
+use Stripe\Checkout\Session as StripeSession;
 
 class CheckoutPage extends Component
 {
@@ -196,6 +200,8 @@ class CheckoutPage extends Component
             DB::commit();
 
             // send order confirmation
+            Mail::to($order->customer->email)
+            ->queue(new OrderConfirmation($order));
 
             // processing the payment
             if ($this->paymentMethod === 'stripe') {
@@ -208,13 +214,74 @@ class CheckoutPage extends Component
             }
 
         } catch (\Exception $e) {
-            // throw $th;
+            DB::rollBack();
+
+            session()->flash('error', 'Error placing order: ' . $e->getMessage());
         }
     }
 
     protected function processStripePayment($order)
     {
+        Stripe::setApiKey(config('services.stripe.secret'));
 
+        $lineItems = [];
+
+        foreach ($order->items as $item) {
+            $lineItems[] = [
+                'price_data' => [
+                    'currency' => 'usd',
+                    'product_data' => [
+                        'name' => $item->product_name . ($item->variant_name ? ' - ' . $item->variant_name : ''),
+                    ],
+                    'unit_amount' => $item->price * 100,
+                ],
+                'quantity' => $item->quantity,
+            ];
+        }
+
+        // Add shipping
+        if ($order->shipping_cost > 0) {
+            $lineItems[] = [
+                'price_data' => [
+                    'currency' => 'usd',
+                    'product_data' => [
+                        'name' => 'Shipping',
+                    ],
+                    'unit_amount' => $order->shipping_cost * 100,
+                ],
+                'quantity' => 1,
+            ];
+        }
+
+        // Add discount
+        if ($order->discount_amount > 0) {
+            $lineItems[] = [
+                'price_data' => [
+                    'currency' => 'usd',
+                    'product_data' => [
+                        'name' => 'Discount',
+                    ],
+                    'unit_amount' => -($order->discount_amount * 100),
+                ],
+                'quantity' => 1,
+            ];
+        }
+
+        $session = StripeSession::create([
+            'payment_method_types' => ['card'],
+            'line_items' => $lineItems,
+            'mode' => 'payment',
+            'success_url' => route('checkout.success', ['order' => $order->id]) . '?session_id={CHECKOUT_SESSION_ID}',
+            'cancel_url' => route('checkout.cancel', ['order' => $order->id]),
+            'customer_email' => auth('customer')->user()->email,
+            'metadata' => [
+                'order_id' => $order->id,
+            ],
+        ]);
+
+        $order->update(['transaction_id' => $session->id]);
+
+        return redirect($session->url);
     }
 
     protected function getSubtotal()
@@ -248,7 +315,15 @@ class CheckoutPage extends Component
 
     public function render()
     {
-        return view('livewire.checkout-page')
+        $addresses = auth('customer')->user()->addresses;
+
+        return view('livewire.checkout-page', [
+            'addresses' => $addresses,
+            'subtotal' => $this->getSubtotal(),
+            'shippingCost' => $this->getShippingCost(),
+            'discountAmount' => $this->getDiscountAmount(),
+            'total' => $this->getSubtotal() + $this->getShippingCost() - $this->getDiscountAmount(),
+        ])
         ->layout('components.layouts.front-end-layout', [
             'title' => 'Checkout'
         ]);;

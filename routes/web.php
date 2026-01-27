@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CheckoutController;
 use App\Livewire\CartPage;
 use App\Livewire\CheckoutPage;
 use App\Livewire\Customer\Dashboard;
@@ -30,6 +31,10 @@ Route::middleware('auth:customer')->group(function(){
     Route::get('/my-account/orders', Orders::class)->name('customer.orders');
     Route::get('/my-account/orders/{id}', OrderDetails::class)->name('customer.orders.show');
     Route::get('/my-account/profile', \App\Livewire\Customer\Profile::class)->name('customer.profile');
+
+    // checkout success/cancel routes
+    Route::get('/checkout/success/{order}', [CheckoutController::class, 'success'])->name('checkout.success');
+    Route::get('/checkout/cancel/{order}', [CheckoutController::class, 'cancel'])->name('checkout.cancel');
 
     // Logout
     Route::post('/logout', function(){
