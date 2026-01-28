@@ -1,5 +1,5 @@
 <div class="group relative bg-white rounded-lg shadow-sm hover:shadow-lg transition duration-300 overflow-hidden">
-    <a href="{{ route('products.show', $product->slug) }} " class="block">
+    <a href="{{ route('products.show', $product->slug) }}" class="block">
         <!-- Product Image -->
         <div class="aspect-square overflow-hidden bg-gray-200">
             @if ($product->primaryImage)
@@ -17,7 +17,7 @@
         <div class="absolute top-2 left-2 flex flex-col gap-2">
             @if ($product->is_featured)
                 <span class="bg-yellow-500 text-white text-xs font-semibold px-2 py-1 rounded">
-                    Featured
+                    En vedette
                 </span>
             @endif
 
@@ -29,7 +29,7 @@
 
             @if ($product->is_featured)
                 <span class="bg-gray-800 text-white text-xs font-semibold px-2 py-1 rounded">
-                    Out of Stock
+                    En rupture de stock
                 </span>
             @endif
         </div>
@@ -82,14 +82,14 @@
     <!-- Add to Cart Button -->
     @if ($product->stock_status === 'in_stock')
         <div class="p-4 pt-0">
-            <button wire:click="addToCart" class="w-full text-sm cursor-pointer bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition">
-                Add to Cart
+            <button wire:click="addToCart" class="w-full text-xs cursor-pointer bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition">
+                Ajouter au panier
             </button>
         </div>
     @else
         <div class="p-4 pt-0">
-            <button disabled class="w-full text-sm bg-gray-300 text-gray-500 py-2 px-4 rounded-lg cursor-not-allowed font-medium">
-                Out of Stock
+            <button disabled class="w-full text-xs bg-gray-300 text-gray-500 py-2 px-4 rounded-lg cursor-not-allowed font-medium">
+                En rupture de stock
             </button>
         </div>
     @endif

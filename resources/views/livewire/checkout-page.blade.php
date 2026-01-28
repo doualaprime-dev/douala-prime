@@ -1,7 +1,7 @@
 <div class="bg-gray-50 py-8">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <!-- Header -->
-        <h1 class="text-3xl font-bold text-gray-900 mb-8">Checkout</h1>
+        <h1 class="text-3xl font-bold text-gray-900 mb-8">Paiement</h1>
 
         <!-- Progress Steps -->
         <div class="mb-8">
@@ -17,7 +17,7 @@
                                 <span class="font-semibold">1</span>
                             @endif
                         </div>
-                        <span class="ml-2 font-medium">Shipping</span>
+                        <span class="ml-2 font-medium">Expédition</span>
                     </div>
                     <div class="w-24 h-1 mx-4 {{ $step >= 2 ? 'bg-blue-600' : 'bg-gray-300' }}"></div>
                     <div class="flex items-center {{ $step >= 2 ? 'text-blue-600' : 'text-gray-400' }}">
@@ -30,14 +30,14 @@
                                 <span class="font-semibold">2</span>
                             @endif
                         </div>
-                        <span class="ml-2 font-medium">Review</span>
+                        <span class="ml-2 font-medium">Avis</span>
                     </div>
                     <div class="w-24 h-1 mx-4 {{ $step >= 3 ? 'bg-blue-600' : 'bg-gray-300' }}"></div>
                     <div class="flex items-center {{ $step >= 3 ? 'text-blue-600' : 'text-gray-400' }}">
                         <div class="flex items-center justify-center w-10 h-10 rounded-full border-2 {{ $step >= 3 ? 'border-blue-600 bg-blue-600 text-white' : 'border-gray-300' }}">
                             <span class="font-semibold">3</span>
                         </div>
-                        <span class="ml-2 font-medium">Payment</span>
+                        <span class="ml-2 font-medium">Paiement</span>
                     </div>
                 </div>
             </div>
@@ -55,7 +55,7 @@
                 <!-- Step 1: Shipping Address -->
                 @if($step === 1)
                     <div class="bg-white rounded-lg shadow-sm p-6">
-                        <h2 class="text-xl font-bold text-gray-900 mb-6">Shipping Address</h2>
+                        <h2 class="text-xl font-bold text-gray-900 mb-6">Adresse de livraison</h2>
 
                         <!-- Use Existing Address -->
                         @if($addresses->count() > 0)
@@ -64,7 +64,7 @@
                                     <input type="checkbox"
                                            wire:model.live="useExistingAddress"
                                            class="w-4 h-4 text-blue-600 rounded">
-                                    <span class="font-medium">Use saved address</span>
+                                    <span class="font-medium">Utiliser l'adresse enregistrée</span>
                                 </label>
                             </div>
 
@@ -84,7 +84,7 @@
                                                         <p class="text-gray-600 mt-2">{{ $address->full_address }}</p>
                                                         @if($address->is_default)
                                                             <span class="inline-block mt-2 bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">
-                                                                Default
+                                                                Par Défaut
                                                             </span>
                                                         @endif
                                                     </div>
@@ -100,7 +100,7 @@
                         @if(!$useExistingAddress || $addresses->count() === 0)
                             <div class="space-y-4">
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Nom et prénom *</label>
                                     <input type="text"
                                            wire:model="full_name"
                                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
@@ -108,7 +108,7 @@
                                 </div>
 
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Phone *</label>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Téléphone *</label>
                                     <input type="tel"
                                            wire:model="phone"
                                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
@@ -116,7 +116,7 @@
                                 </div>
 
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Address Line 1 *</label>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Adresse 1 *</label>
                                     <input type="text"
                                            wire:model="address_line_1"
                                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
@@ -124,7 +124,7 @@
                                 </div>
 
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Address Line 2</label>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Adresse 2</label>
                                     <input type="text"
                                            wire:model="address_line_2"
                                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
@@ -132,7 +132,7 @@
 
                                 <div class="grid grid-cols-2 gap-4">
                                     <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">City *</label>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Ville *</label>
                                         <input type="text"
                                                wire:model="city"
                                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
@@ -140,7 +140,7 @@
                                     </div>
 
                                     <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">State</label>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Région</label>
                                         <input type="text"
                                                wire:model="state"
                                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
@@ -149,7 +149,7 @@
 
                                 <div class="grid grid-cols-2 gap-4">
                                     <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">Postal Code *</label>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Code Postal *</label>
                                         <input type="text"
                                                wire:model="postal_code"
                                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
@@ -157,12 +157,15 @@
                                     </div>
 
                                     <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">Country *</label>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Pays *</label>
                                         <select wire:model="country"
                                                 class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
-                                            <option value="US">United States</option>
-                                            <option value="CA">Canada</option>
-                                            <option value="UK">United Kingdom</option>
+                                            <option value="US">Cameroun</option>
+                                            <option value="CA">Gabon</option>
+                                            <option value="UK">Congo</option>
+                                            <option value="UK">Tchad</option>
+                                            <option value="UK">RCA</option>
+                                            <option value="UK">Guinée Equatorial</option>
                                         </select>
                                     </div>
                                 </div>
@@ -172,11 +175,11 @@
                         <div class="flex justify-between mt-6 pt-6 border-t">
                             <a href="{{ route('cart.index') }}"
                                class="text-gray-600 hover:text-gray-900 font-medium">
-                                ← Back to Cart
+                                ← Retour au panier
                             </a>
                             <button wire:click="nextStep"
                                     class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-indigo-700 transition font-semibold">
-                                Continue to Review
+                                Poursuivre ses achats
                             </button>
                         </div>
                     </div>
@@ -185,7 +188,7 @@
                 <!-- Step 2: Review Order -->
                 @if($step === 2)
                     <div class="bg-white rounded-lg shadow-sm p-6">
-                        <h2 class="text-xl font-bold text-gray-900 mb-6">Review Your Order</h2>
+                        <h2 class="text-xl font-bold text-gray-900 mb-6">Vérifiez votre commande</h2>
 
                         <!-- Order Items -->
                         <div class="space-y-4 mb-6">
@@ -203,10 +206,10 @@
                                         @if($item['variant_name'])
                                             <p class="text-sm text-gray-600">{{ $item['variant_name'] }}</p>
                                         @endif
-                                        <p class="text-sm text-gray-600">Quantity: {{ $item['quantity'] }}</p>
+                                        <p class="text-sm text-gray-600">Quantité: {{ $item['quantity'] }}</p>
                                     </div>
                                     <div class="text-right">
-                                        <p class="font-bold text-gray-900">${{ number_format($item['price'] * $item['quantity'], 2) }}</p>
+                                        <p class="font-bold text-gray-900">{{ number_format($item['price'] * $item['quantity'], 3) }} F CFA</p>
                                     </div>
                                 </div>
                             @endforeach
@@ -214,7 +217,7 @@
 
                         <!-- Customer Notes -->
                         <div class="mb-6">
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Order Notes (Optional)</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Notes de commande (facultatif)</label>
                             <textarea wire:model="customerNotes"
                                       rows="3"
                                       placeholder="Special instructions for your order..."
@@ -224,11 +227,11 @@
                         <div class="flex justify-between pt-6 border-t">
                             <button wire:click="previousStep"
                                     class="text-gray-600 hover:text-gray-900 font-medium">
-                                ← Back to Shipping
+                                ← Retour à la page Expédition
                             </button>
                             <button wire:click="nextStep"
                                     class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-indigo-700 transition font-semibold">
-                                Continue to Payment
+                                Poursuivre le paiement
                             </button>
                         </div>
                     </div>
@@ -237,7 +240,7 @@
                 <!-- Step 3: Payment -->
                 @if($step === 3)
                     <div class="bg-white rounded-lg shadow-sm p-6">
-                        <h2 class="text-xl font-bold text-gray-900 mb-6">Payment Method</h2>
+                        <h2 class="text-xl font-bold text-gray-900 mb-6">Mode de paiement</h2>
 
                         <div class="space-y-4 mb-6">
                             <label class="relative cursor-pointer">
@@ -252,8 +255,8 @@
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
                                             </svg>
                                             <div>
-                                                <p class="font-semibold text-gray-900">Credit/Debit Card</p>
-                                                <p class="text-sm text-gray-600">Pay securely with Stripe</p>
+                                                <p class="font-semibold text-gray-900">Carte de crédit/débit</p>
+                                                <p class="text-sm text-gray-600">Payez en toute sécurité avec Stripe</p>
                                             </div>
                                         </div>
                                     </div>
@@ -272,8 +275,8 @@
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
                                             </svg>
                                             <div>
-                                                <p class="font-semibold text-gray-900">Cash on Delivery</p>
-                                                <p class="text-sm text-gray-600">Pay when you receive your order</p>
+                                                <p class="font-semibold text-gray-900">Paiement à la livraison</p>
+                                                <p class="text-sm text-gray-600">Payez à la réception de votre commande</p>
                                             </div>
                                         </div>
                                     </div>
@@ -284,11 +287,11 @@
                         <div class="flex justify-between pt-6 border-t">
                             <button wire:click="previousStep"
                                     class="text-gray-600 hover:text-gray-900 font-medium">
-                                ← Back to Review
+                                ← Retour à la revue
                             </button>
                             <button wire:click="placeOrder"
                                     class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-indigo-700 transition font-semibold">
-                                Place Order
+                                Passer la commande
                             </button>
                         </div>
                     </div>
@@ -298,27 +301,27 @@
             <!-- Order Summary -->
             <div>
                 <div class="bg-white rounded-lg shadow-sm p-6 sticky top-24">
-                    <h2 class="text-xl font-bold text-gray-900 mb-6">Order Summary</h2>
+                    <h2 class="text-xl font-bold text-gray-900 mb-6">Résumé de la commande</h2>
 
                     <div class="space-y-3 mb-6">
                         <div class="flex justify-between">
-                            <span class="text-gray-600">Subtotal</span>
+                            <span class="text-gray-600">Sous-total</span>
                             <span class="font-medium">${{ number_format($subtotal, 2) }}</span>
                         </div>
                         <div class="flex justify-between">
-                            <span class="text-gray-600">Shipping</span>
+                            <span class="text-gray-600">Expédition</span>
                             <span class="font-medium">
                                 @if($shippingCost > 0)
                                     ${{ number_format($shippingCost, 2) }}
                                 @else
-                                    <span class="text-green-600">FREE</span>
+                                    <span class="text-green-600">GRATUITE</span>
                                 @endif
                             </span>
                         </div>
                         @if($discountAmount > 0)
                             <div class="flex justify-between text-green-600">
-                                <span>Discount</span>
-                                <span class="font-medium">-${{ number_format($discountAmount, 2) }}</span>
+                                <span>Rabais</span>
+                                <span class="font-medium">-{{ number_format($discountAmount, 3) }} F CFA</span>
                             </div>
                         @endif
                     </div>
@@ -326,7 +329,7 @@
                     <!-- Coupon Code -->
                     @if(!$appliedCoupon)
                         <div class="mb-6 pb-6 border-b">
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Coupon Code</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Code promo</label>
                             <div class="flex gap-2">
                                 <input type="text"
                                        wire:model="couponCode"
@@ -334,7 +337,7 @@
                                        class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
                                 <button wire:click="applyCoupon"
                                         class="bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-900 transition">
-                                    Apply
+                                    Appliquer
                                 </button>
                             </div>
                             @if (session()->has('coupon_error'))
@@ -348,7 +351,7 @@
                         <div class="mb-6 pb-6 border-b">
                             <div class="flex items-center justify-between bg-green-50 p-3 rounded-lg">
                                 <div>
-                                    <p class="text-sm font-medium text-green-800">Coupon Applied</p>
+                                    <p class="text-sm font-medium text-green-800">Coupon appliqué</p>
                                     <p class="text-xs text-green-600">{{ $appliedCoupon->code }}</p>
                                 </div>
                                 <button wire:click="removeCoupon"

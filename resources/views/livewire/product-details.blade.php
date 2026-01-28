@@ -56,17 +56,17 @@
                     <div class="flex flex-wrap gap-2 mb-4">
                         @if ($product->is_featured)
                             <span class="bg-yellow-100 text-yellow-800 text-sm font-semibold px-3 py-1 rounded">
-                                Featured
+                                En vedette
                             </span>
                         @endif
 
                         @if ($product->stock_status === 'in_stock')
                             <span class="bg-green-100 text-green-800 text-sm font-semibold px-3 py-1 rounded">
-                                In Stock
+                                En stock
                             </span>
                         @else
                             <span class="bg-red-100 text-red-800 text-sm font-semibold px-3 py-1 rounded">
-                                Out of Stock
+                                En rupture de stock
                             </span>
                         @endif
                     </div>
@@ -156,7 +156,7 @@
 
                     <!-- Quantity -->
                     <div class="mb-6">
-                        <label class="block text-sm font-medium text-gray-900 mb-3">Quantity:</label>
+                        <label class="block text-sm font-medium text-gray-900 mb-3">Quantité:</label>
                         <div class="flex items-center gap-3">
                             <button wire:click="decrementQuantity" class="w-10 h-10 rounded-lg border border-gray-300 hover:bg-gray-100 flex items-center justify-center font-semibold">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
@@ -190,11 +190,11 @@
                     <!-- Add to Cart -->
                     @if ($product->stock_status === 'in_stock')
                         <button wire:click="addToCart" class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition">
-                            Add to Cart
+                            Ajouter au panier
                         </button>
                     @else
                         <button disabled class="w-full bg-gray-300 text-gray-500 py-2 px-4 rounded-lg cursor-not-allowed font-medium">
-                            Out of Stock
+                            En rupture de stock
                         </button>
                     @endif
 
@@ -205,14 +205,14 @@
                             <span class="font-medium">{{ $product->sku }}</span>
                         </div>
                         <div class="flex justify-between">
-                            <span class="text-gray-600">Category:</span>
+                            <span class="text-gray-600">Categorie:</span>
                             <a href="{{ route('products.index', ['category' => $product->category->slug]) }}" class="font-medium text-blue-600 hover:text-indigo-700">
                                 {{ $product->category->name }}
                             </a>
                         </div>
                         @if ($product->brand)
                             <div class="flex justify-between">
-                                <span class="text-gray-600">Brand:</span>
+                                <span class="text-gray-600">Marque:</span>
                                 <a href="{{ route('products.index', ['brand' => $product->brand->slug]) }}" class="font-medium text-blue-600 hover:text-indigo-700">
                                     {{ $product->brand->name }}
                                 </a>
@@ -236,7 +236,7 @@
                     <button @click="activeTab = 'reviews'"
                             :class="{ 'border-blue-600 text-blue-600': activeTab === 'reviews' }"
                             class="px-6 py-4 border-b-2 font-medium transition">
-                        Reviews {{{ $product->reviews_count }}}
+                        Avis {{{ $product->reviews_count }}}
                     </button>
                 </nav>
             </div>
@@ -267,7 +267,7 @@
                                                 <h4 class="font-semibold">{{ $review->customer->name }}</h4>
                                                 @if ($review->is_verified_purchase)
                                                     <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">
-                                                        Verified Purchase
+                                                        Achat vérifié
                                                     </span>
                                                 @endif
                                             </div>
@@ -302,7 +302,7 @@
                         </div>
                     @else
                         <div class="text-center py-8">
-                            <p class="text-gray-500">No reviews yet. Be the first to review this product !</p>
+                            <p class="text-gray-500">Aucun avis pour le moment. Soyez le premier à donner votre avis sur ce produit !</p>
                         </div>
                     @endif
                 </div>
@@ -313,7 +313,7 @@
         <!-- Related Products -->
         @if ($relatedProducts->count() > 0)
             <section>
-                <h2 class="text-2xl font-bold text-gray-900 mb-6">Related Products</h2>
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Produits associés</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     @foreach ($relatedProducts as $relatedProduct)
                         <livewire:product-card :product="$relatedProduct" :key="'related-' . $relatedProduct->id" lazy />

@@ -2,27 +2,27 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {{-- header --}}
         <div class="mb-8">
-            <h1 class="text-3xl font-bold text-gray-900 mb-2">My Orders</h1>
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Mes commandes</h1>
             <nav class="text-sm">
                 <ol class="flex items-center gap-2">
-                    <li><a href="{{ route('customer.dashboard') }}" class="text-gray-500 hover:text-blue-600">Account</a></li>
+                    <li><a href="{{ route('customer.dashboard') }}" class="text-gray-500 hover:text-blue-600">Mon Compte</a></li>
                     <li class="text-gray-400">/</li>
-                    <li class="text-gray-900 font-medium">Orders</li>
+                    <li class="text-gray-900 font-medium">Commandes</li>
                 </ol>
             </nav>
         </div>
         {{-- filters --}}
         <div class="bg-white rounded-lg shadow-sm p-4 mb-6">
             <div class="flex items-center gap-4">
-                <label class="text-gray-700 font-medium">Filter by Status:</label>
+                <label class="text-gray-700 font-medium">Filtrer par statut:</label>
                 <select wire:model.live="statusFilter"
                         class="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500">
-                    <option value="">All Orders</option>
-                    <option value="pending">Pending</option>
-                    <option value="processing">Processing</option>
-                    <option value="shipped">Shipped</option>
-                    <option value="delivered">Delivered</option>
-                    <option value="cancelled">Cancelled</option>
+                    <option value="">Toutes les commandes</option>
+                    <option value="pending">En attente</option>
+                    <option value="processing">Traitement</option>
+                    <option value="shipped">Expédié</option>
+                    <option value="delivered">Livré</option>
+                    <option value="cancelled">Annulé</option>
                 </select>
             </div>
         </div>
@@ -36,7 +36,7 @@
                             <div class="flex items-center justify-between flex-wrap gap-4">
                                 <div class="flex items-center gap-6">
                                     <div>
-                                        <p class="text-sm text-gray-600">Order Number</p>
+                                        <p class="text-sm text-gray-600">N° commande</p>
                                         <p class="font-semibold text-gray-900">{{ $order->order_number }}</p>
                                     </div>
                                     <div>
@@ -59,7 +59,7 @@
                                     </span>
                                     <a href="{{ route('customer.orders.show', $order->id) }}"
                                        class="text-blue-600 hover:text-indigo-700 font-medium">
-                                        View Details →
+                                        Voir les détails →
                                     </a>
                                 </div>
                             </div>
@@ -82,10 +82,10 @@
                                             @if($item->variant_name)
                                                 <p class="text-sm text-gray-600">{{ $item->variant_name }}</p>
                                             @endif
-                                            <p class="text-sm text-gray-600">Quantity: {{ $item->quantity }}</p>
+                                            <p class="text-sm text-gray-600">Quantité: {{ $item->quantity }}</p>
                                         </div>
                                         <div class="text-right">
-                                            <p class="font-bold text-gray-900">${{ number_format($item->subtotal, 2) }}</p>
+                                            <p class="font-bold text-gray-900">{{ number_format($item->subtotal, 3) }} F CFA</p>
                                         </div>
                                     </div>
                                 @endforeach
@@ -104,23 +104,23 @@
                 <svg class="mx-auto w-16 h-16 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                 </svg>
-                <h3 class="text-xl font-semibold text-gray-900 mb-2">No orders found</h3>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Aucune commande trouvée</h3>
                 <p class="text-gray-600 mb-6">
                     @if($statusFilter)
-                        No orders with status "{{ $statusFilter }}"
+                        Aucune commande avec statut "{{ $statusFilter }}"
                     @else
-                        You haven't placed any orders yet
+                        Vous n'avez pas encore passé de commande
                     @endif
                 </p>
                 @if($statusFilter)
                     <button wire:click="$set('statusFilter', '')"
                             class="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition">
-                        Show All Orders
+                        Afficher toutes les commandes
                     </button>
                 @else
                     <a href="{{ route('products.index') }}"
                        class="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition">
-                        Start Shopping
+                        Commencez vos achats
                     </a>
                 @endif
             </div>

@@ -9,6 +9,7 @@ use App\Models\Category;
 
 class HomePage extends Component
 {
+
     public function render()
     {
         $featuredProducts = Product::active()
@@ -128,7 +129,7 @@ class HomePage extends Component
         $audio_et_hifi = Product::active()
             ->inStock()
             ->with(['category', 'brand', 'primaryImage'])
-            ->where('category_id', 11)
+            ->where('category_id', 12)
             ->latest()
             ->limit(5)
             ->get();

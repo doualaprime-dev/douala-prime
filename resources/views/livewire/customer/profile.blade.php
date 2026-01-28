@@ -2,12 +2,12 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <!-- Header -->
         <div class="mb-8">
-            <h1 class="text-3xl font-bold text-gray-900 mb-2">My Profile</h1>
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Mon profil</h1>
             <nav class="text-sm">
                 <ol class="flex items-center gap-2">
-                    <li><a href="{{ route('customer.dashboard') }}" class="text-gray-500 hover:text-blue-600">Account</a></li>
+                    <li><a href="{{ route('customer.dashboard') }}" class="text-gray-500 hover:text-blue-600">Mon Compte</a></li>
                     <li class="text-gray-400">/</li>
-                    <li class="text-gray-900 font-medium">Profile</li>
+                    <li class="text-gray-900 font-medium">Profil</li>
                 </ol>
             </nav>
         </div>
@@ -24,7 +24,7 @@
                         <p class="text-gray-600">{{ auth('customer')->user()->email }}</p>
                     </div>
                     <div class="border-t pt-4">
-                        <p class="text-sm text-gray-600">Member since</p>
+                        <p class="text-sm text-gray-600">Membre depuis</p>
                         <p class="font-medium text-gray-900">{{ auth('customer')->user()->created_at->format('M d, Y') }}</p>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
             <div class="lg:col-span-2 space-y-6">
                 <!-- Profile Information -->
                 <div class="bg-white rounded-lg shadow-sm p-6">
-                    <h2 class="text-xl font-bold text-gray-900 mb-6">Profile Information</h2>
+                    <h2 class="text-xl font-bold text-gray-900 mb-6">Informations de profil</h2>
 
                     @if (session()->has('profile_success'))
                         <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
@@ -44,7 +44,7 @@
 
                     <form wire:submit="updateProfile" class="space-y-4">
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Nom et prénom *</label>
                             <input type="text"
                                    wire:model="name"
                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
@@ -52,7 +52,7 @@
                         </div>
 
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">E-mail *</label>
                             <input type="email"
                                    wire:model="email"
                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
@@ -60,7 +60,7 @@
                         </div>
 
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Téléphone</label>
                             <input type="tel"
                                    wire:model="phone"
                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
@@ -69,34 +69,33 @@
 
                         <div class="grid grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Date of Birth</label>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Date de naissance</label>
                                 <input type="date"
                                        wire:model="date_of_birth"
                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
                             </div>
 
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Gender</label>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Genre</label>
                                 <select wire:model="gender"
                                         class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
-                                    <option value="">Select</option>
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
-                                    <option value="other">Other</option>
+                                    <option value="">Sélectionner</option>
+                                    <option value="male">Masculin</option>
+                                    <option value="female">Féminin</option>
                                 </select>
                             </div>
                         </div>
 
                         <button type="submit"
                                 class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition font-semibold">
-                            Update Profile
+                            Mettre à jour le profil
                         </button>
                     </form>
                 </div>
 
                 <!-- Change Password -->
                 <div class="bg-white rounded-lg shadow-sm p-6">
-                    <h2 class="text-xl font-bold text-gray-900 mb-6">Change Password</h2>
+                    <h2 class="text-xl font-bold text-gray-900 mb-6">Changer le mot de passe</h2>
 
                     @if (session()->has('password_success'))
                         <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
@@ -111,7 +110,7 @@
 
                     <form wire:submit="updatePassword" class="space-y-4">
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Current Password</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Mot de passe actuel</label>
                             <input type="password"
                                    wire:model="current_password"
                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
@@ -119,7 +118,7 @@
                         </div>
 
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">New Password</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Nouveau mot de passe</label>
                             <input type="password"
                                    wire:model="new_password"
                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
@@ -127,7 +126,7 @@
                         </div>
 
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Confirm New Password</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Confirmer le nouveau mot de passe</label>
                             <input type="password"
                                    wire:model="new_password_confirmation"
                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
@@ -135,7 +134,7 @@
 
                         <button type="submit"
                                 class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition font-semibold">
-                            Change Password
+                            Changer le mot de passe
                         </button>
                     </form>
                 </div>
@@ -143,11 +142,11 @@
                 <!-- Saved Addresses -->
                 <div class="bg-white rounded-lg shadow-sm p-6">
                     <div class="flex items-center justify-between mb-6">
-                        <h2 class="text-xl font-bold text-gray-900">Saved Addresses</h2>
+                        <h2 class="text-xl font-bold text-gray-900">Adresses enregistrées</h2>
                         @if(!$showAddressForm)
                             <button wire:click="addAddress"
                                     class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition font-medium">
-                                + Add Address
+                                + Ajouter une adresse
                             </button>
                         @endif
                     </div>
@@ -167,7 +166,7 @@
                             <form wire:submit="saveAddress" class="space-y-4">
                                 <div class="grid grid-cols-2 gap-4">
                                     <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Nom et prénom *</label>
                                         <input type="text"
                                                wire:model="address_full_name"
                                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
@@ -175,7 +174,7 @@
                                     </div>
 
                                     <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">Phone *</label>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Téléphone *</label>
                                         <input type="tel"
                                                wire:model="address_phone"
                                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
@@ -184,7 +183,7 @@
                                 </div>
 
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Address Line 1 *</label>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Adresse 1 *</label>
                                     <input type="text"
                                            wire:model="address_line_1"
                                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
@@ -192,7 +191,7 @@
                                 </div>
 
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Address Line 2</label>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Adresse 2</label>
                                     <input type="text"
                                            wire:model="address_line_2"
                                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
@@ -200,7 +199,7 @@
 
                                 <div class="grid grid-cols-3 gap-4">
                                     <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">City *</label>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Ville *</label>
                                         <input type="text"
                                                wire:model="address_city"
                                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
@@ -208,14 +207,14 @@
                                     </div>
 
                                     <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">State</label>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Région</label>
                                         <input type="text"
                                                wire:model="address_state"
                                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
                                     </div>
 
                                     <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">Postal Code *</label>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Code Postal *</label>
                                         <input type="text"
                                                wire:model="address_postal_code"
                                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
@@ -228,19 +227,19 @@
                                         <input type="checkbox"
                                                wire:model="address_is_default"
                                                class="w-4 h-4 text-blue-600 rounded">
-                                        <span class="text-sm text-gray-700">Set as default address</span>
+                                        <span class="text-sm text-gray-700">Définir comme adresse par défaut</span>
                                     </label>
                                 </div>
 
                                 <div class="flex gap-2">
                                     <button type="submit"
                                             class="flex-1 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition font-semibold">
-                                        Save Address
+                                        Enregistrer l'adresse
                                     </button>
                                     <button type="button"
                                             wire:click="cancelAddressForm"
                                             class="flex-1 bg-gray-200 text-gray-900 py-2 px-4 rounded-lg hover:bg-gray-300 transition font-semibold">
-                                        Cancel
+                                        Annuler
                                     </button>
                                 </div>
                             </form>
@@ -259,7 +258,7 @@
                                             <p class="text-gray-600 mt-2">{{ $address->full_address }}</p>
                                             @if($address->is_default)
                                                 <span class="inline-block mt-2 bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">
-                                                    Default
+                                                    Par Défaut
                                                 </span>
                                             @endif
                                         </div>
@@ -284,7 +283,7 @@
                         </div>
                     @else
                         @if(!$showAddressForm)
-                            <p class="text-gray-600 text-center py-4">No saved addresses</p>
+                            <p class="text-gray-600 text-center py-4">Aucune adresse enregistrée</p>
                         @endif
                     @endif
                 </div>

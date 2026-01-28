@@ -11,7 +11,7 @@
             <div class="bg-white rounded-lg shadow-sm p-6">
                 <div class="flex items-center justify-between">
                     <div>
-                        <p class="text-gray-600 text-sm">Total Orders</p>
+                        <p class="text-gray-600 text-sm">Commandes totales</p>
                         <p class="text-3xl font-bold text-gray-900">{{ $stats['total_orders'] }}</p>
                     </div>
                     <div class="w-12 h-12 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center">
@@ -25,7 +25,7 @@
             <div class="bg-white rounded-lg shadow-sm p-6">
                 <div class="flex items-center justify-between">
                     <div>
-                        <p class="text-gray-600 text-sm">Pending Orders</p>
+                        <p class="text-gray-600 text-sm">Commandes en attente</p>
                         <p class="text-3xl font-bold text-gray-900">{{ $stats['pending_orders'] }}</p>
                     </div>
                     <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
@@ -39,7 +39,7 @@
             <div class="bg-white rounded-lg shadow-sm p-6">
                 <div class="flex items-center justify-between">
                     <div>
-                        <p class="text-gray-600 text-sm">Total Spent</p>
+                        <p class="text-gray-600 text-sm">Total dépensé</p>
                         <p class="text-3xl font-bold text-gray-900">{{ number_format($stats['total_spent']) }}</p>
                     </div>
                     <div class="w-12 h-12 bg-indigo-100 text-blue-600 rounded-full flex items-center justify-center">
@@ -55,7 +55,7 @@
             {{-- Quick Actions --}}
             <div class="lg:col-span-1">
                 <div class="bg-white rounded-lg shadow-sm p-6">
-                    <h2 class="text-xl font-bold text-gray-900 mb-4">Quick Actions</h2>
+                    <h2 class="text-xl font-bold text-gray-900 mb-4">Actions rapides</h2>
                     <div class="space-y-3">
                         <a href="{{ route('customer.orders') }}" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition group">
                             <div class="w-10 h-10 bg-yellow-100 text-yellow-500 rounded-lg flex items-center justify-center group-hover:bg-yellow-500 group-hover:text-white transition">
@@ -64,8 +64,8 @@
                                 </svg>
                             </div>
                             <div>
-                                <p class="font-semibold text-gray-900">My Orders</p>
-                                <p class="text-sm text-gray-600">View order history</p>
+                                <p class="font-semibold text-gray-900">Mes commandes</p>
+                                <p class="text-sm text-gray-600">Consulter l'historique des commandes</p>
                             </div>
                         </a>
 
@@ -76,8 +76,8 @@
                                 </svg>
                             </div>
                             <div>
-                                <p class="font-semibold text-gray-900">My Profile</p>
-                                <p class="text-sm text-gray-600">Manage account details</p>
+                                <p class="font-semibold text-gray-900">Mon profil</p>
+                                <p class="text-sm text-gray-600">Gérer les détails du compte</p>
                             </div>
                         </a>
 
@@ -88,8 +88,8 @@
                                 </svg>
                             </div>
                             <div>
-                                <p class="font-semibold text-gray-900">Continue Shopping</p>
-                                <p class="text-sm text-gray-600">Browse products</p>
+                                <p class="font-semibold text-gray-900">Continuer vos achats</p>
+                                <p class="text-sm text-gray-600">Parcourir les produits</p>
                             </div>
                         </a>
 
@@ -103,8 +103,8 @@
                                     </svg>
                                 </div>
                                 <div class="text-left">
-                                    <p class="font-semibold text-gray-900">Logout</p>
-                                    <p class="text-sm text-gray-600">Sign out of account</p>
+                                    <p class="font-semibold text-gray-900">Déconnexion</p>
+                                    <p class="text-sm text-gray-600">Déconnexion du compte</p>
                                 </div>
                             </button>
                         </form>
@@ -116,9 +116,9 @@
             <div class="lg:col-span-2">
                 <div class="bg-white rounded-lg shadow-sm p-6">
                     <div class="flex items-center justify-between mb-6">
-                        <h2 class="text-xl font-bold text-gray-900">Recent Orders</h2>
+                        <h2 class="text-xl font-bold text-gray-900">Commandes récentes</h2>
                         <a href="{{ route('customer.orders') }}" class="text-yellow-500 hover:text-yellow-600 font-medium text-sm">
-                            View All ->
+                            Afficher tout ->
                         </a>
                     </div>
 
@@ -166,9 +166,9 @@
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-auto w-16 h-16 text-gray-400 mb-4">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
                             </svg>
-                            <p class="text-gray-600 mb-4">No orders yet</p>
+                            <p class="text-gray-600 mb-4">Aucune commande pour le moment</p>
                             <a href="{{ route('products.index') }}" class="inline-block bg-yellow-500 text-white px-6 py-2 rounded-lg hover:bg-yellow-600 transition">
-                                Start Shopping
+                                Commencez vos achats
                             </a>
                         </div>
                     @endif

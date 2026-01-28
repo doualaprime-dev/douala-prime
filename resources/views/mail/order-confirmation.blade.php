@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Confirmation</title>
+    <title>Confirmation de commande</title>
     <style>
          body {
             font-family: Arial, sans-serif;
@@ -66,60 +66,60 @@
 </head>
 <body>
     <div class="header">
-        <h1 style="margin: 0;">Thank You for Your Order!</h1>
+        <h1 style="margin: 0;">Merci pour votre commande !</h1>
     </div>
 
     <div class="content">
         <p>Hi {{ $order->customer->name }},</p>
 
-        <p>We've received your order and are getting it ready. We'll notify you when it's on its way!</p>
+        <p>Nous avons bien reçu votre commande et nous la préparons. Nous vous informerons dès son expédition !</p>
 
         <div class="order-details">
-            <h2 style="margin-top: 0;">Order Details</h2>
-            <p><strong>Order Number:</strong> {{ $order->order_number }}</p>
-            <p><strong>Order Date:</strong> {{ $order->created_at->format('M d, Y h:i A') }}</p>
-            <p><strong>Payment Method:</strong> {{ $order->payment_method === 'stripe' ? 'Credit/Debit Card' : 'Cash on Delivery' }}</p>
-            <p><strong>Payment Status:</strong> {{ ucfirst($order->payment_status) }}</p>
+            <h2 style="margin-top: 0;">Détails de la commande</h2>
+            <p><strong>N° Commande:</strong> {{ $order->order_number }}</p>
+            <p><strong>Date de commande:</strong> {{ $order->created_at->format('M d, Y h:i A') }}</p>
+            <p><strong>Mode de paiement:</strong> {{ $order->payment_method === 'stripe' ? 'Credit/Debit Card' : 'Cash on Delivery' }}</p>
+            <p><strong>État du paiement:</strong> {{ ucfirst($order->payment_status) }}</p>
         </div>
 
-        <h3>Order Items</h3>
+        <h3>Articles commandés</h3>
         @foreach($order->items as $item)
             <div class="item">
                 <strong>{{ $item->product_name }}</strong>
                 @if($item->variant_name)
                     <br><span style="color: #6b7280;">{{ $item->variant_name }}</span>
                 @endif
-                <br>Quantity: {{ $item->quantity }} × ${{ number_format($item->price, 2) }}
-                <br><strong>${{ number_format($item->subtotal, 2) }}</strong>
+                <br>Quantité: {{ $item->quantity }} * {{ number_format($item->price, 3) }}
+                <br><strong>{{ number_format($item->subtotal, 3) }}</strong>
             </div>
         @endforeach
 
         <div style="margin-top: 20px; padding-top: 20px; border-top: 2px solid #e5e7eb;">
             <table width="100%" style="margin-top: 10px;">
                 <tr>
-                    <td>Subtotal:</td>
-                    <td align="right">${{ number_format($order->subtotal, 2) }}</td>
+                    <td>Sous-total:</td>
+                    <td align="right">{{ number_format($order->subtotal, 3) }}</td>
                 </tr>
                 @if($order->discount_amount > 0)
                 <tr>
-                    <td style="color: #059669;">Discount:</td>
-                    <td align="right" style="color: #059669;">-${{ number_format($order->discount_amount, 2) }}</td>
+                    <td style="color: #059669;">Rabais:</td>
+                    <td align="right" style="color: #059669;">-{{ number_format($order->discount_amount, 3) }} F CFA</td>
                 </tr>
                 @endif
                 <tr>
-                    <td>Shipping:</td>
+                    <td>Expédition:</td>
                     <td align="right">
                         @if($order->shipping_cost > 0)
-                            ${{ number_format($order->shipping_cost, 2) }}
+                            {{ number_format($order->shipping_cost, 3) }}
                         @else
-                            <span style="color: #059669;">FREE</span>
+                            <span style="color: #059669;">GRATUITE</span>
                         @endif
                     </td>
                 </tr>
                 @if($order->tax_amount > 0)
                 <tr>
-                    <td>Tax:</td>
-                    <td align="right">${{ number_format($order->tax_amount, 2) }}</td>
+                    <td>Taxe:</td>
+                    <td align="right">{{ number_format($order->tax_amount, 3) }} F CFA</td>
                 </tr>
                 @endif
             </table>
@@ -129,12 +129,12 @@
             <table width="100%">
                 <tr>
                     <td><strong style="font-size: 18px;">Total:</strong></td>
-                    <td align="right"><strong style="font-size: 24px;">${{ number_format($order->total, 2) }}</strong></td>
+                    <td align="right"><strong style="font-size: 24px;">{{ number_format($order->total, 3) }}</strong></td>
                 </tr>
             </table>
         </div>
 
-        <h3>Shipping Address</h3>
+        <h3>Adresse de livraison</h3>
         <p>
             {{ $order->shipping_full_name }}<br>
             {{ $order->shipping_phone }}<br>
@@ -148,13 +148,13 @@
 
         <div style="text-align: center;">
             <a href="{{ route('customer.orders.show', $order->id) }}" class="button">
-                View Order Details
+                Voir les détails de la commande
             </a>
         </div>
 
         @if($order->customer_notes)
             <div style="background: #fef3c7; padding: 15px; border-radius: 8px; margin-top: 20px;">
-                <strong>Your Notes:</strong><br>
+                <strong>Vos notes:</strong><br>
                 {{ $order->customer_notes }}
             </div>
         @endif

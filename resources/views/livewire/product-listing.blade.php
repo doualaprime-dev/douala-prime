@@ -16,13 +16,13 @@
                 @elseif($brand)
                     {{ \App\Models\Brand::where('slug', $brand)->first()?->name }}
                 @elseif($search)
-                    Search Results for "{{ $search }}"
+                    Résultats de recherche pour "{{ $search }}"
                 @else
-                    All Products
+                    Tous les produits
                 @endif
             </h1>
 
-            <p class="text-gray-600">Showing {{ $products->total() }} products</p>
+            <p class="text-gray-600">Affichage de {{ $products->total() }} produits</p>
         </div>
 
         <div class="lg:grid lg:grid-cols-4 lg:gap-6">
@@ -35,34 +35,34 @@
                             <div class="flex items-center justify-between mb-3">
                                 <h3 class="font-semibold text-gray-900">Active Filters</h3>
                                 <button wire:click="clearFilters" class="text-sm text-blue-600 hover:text-indigo-700">
-                                    Clear All
+                                    Effacer tout
                                 </button>
                             </div>
                             <div class="flex flex-wrap gap-2">
                                 @if ($search)
                                     <span class="inline-flex items-center gap-1 bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">
-                                        Search: {{ $search }}
+                                        Recherche: {{ $search }}
                                         <button wire:click="$set('search', '')" class="hover:text-indigo-900">X</button>
                                     </span>
                                 @endif
 
                                 @if ($category)
                                     <span class="inline-flex items-center gap-1 bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">
-                                        Category
+                                        Categorie
                                         <button wire:click="$set('category', '')" class="hover:text-indigo-900">X</button>
                                     </span>
                                 @endif
 
                                 @if ($brand)
                                     <span class="inline-flex items-center gap-1 bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">
-                                        Brand
+                                        Marque
                                         <button wire:click="$set('brand', '')" class="hover:text-indigo-900">X</button>
                                     </span>
                                 @endif
 
                                 @if ($featured)
                                     <span class="inline-flex items-center gap-1 bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">
-                                        Featured
+                                        En vedette
                                         <button wire:click="$set('featured', '')" class="hover:text-indigo-900">X</button>
                                     </span>
                                 @endif
@@ -77,7 +77,7 @@
                             <li>
                                 <button wire:click="$set('category', '')"
                                         class="w-full text-left px-3 py-2 rounded {{ !$category ? 'bg-indigo-50 text-indigo-700' : 'text-gray-700' }}">
-                                    All Categories
+                                    Toutes les Categories
                                 </button>
                             </li>
                             @foreach ($categories as $cat)
@@ -94,12 +94,12 @@
 
                     <!-- Brands -->
                     <div class="bg-white p-4 rounded-lg shadow-sm">
-                        <h3 class="font-semibold text-gray-900 mb-3">Brands</h3>
+                        <h3 class="font-semibold text-gray-900 mb-3">Marques</h3>
                         <ul class="space-y-2 max-h-64 overflow-y-auto">
                             <li>
                                 <button wire:click="$set('brand', '')"
                                         class="w-full text-left px-3 py-2 rounded {{ !$brand ? 'bg-indigo-50 text-indigo-700' : 'text-gray-700' }}">
-                                    All Brands
+                                    Toutes les marques
                                 </button>
                             </li>
                             @foreach ($brands as $br)
@@ -116,7 +116,7 @@
 
                     <!-- Price Range -->
                     <div class="bg-white p-4 rounded-lg shadow-sm">
-                        <h3 class="font-semibold text-gray-900 mb-3">Price Range</h3>
+                        <h3 class="font-semibold text-gray-900 mb-3">Gamme de prix</h3>
                         <div class="space-y-4">
                             <div class="flex items-center gap-2">
                                 <input  type="number"
@@ -132,7 +132,7 @@
 
                             <button wire:click="applyPriceFilter"
                                     class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition">
-                                Apply
+                                Appliquer
                             </button>
                         </div>
                     </div>
@@ -144,15 +144,15 @@
                 {{-- toolbar --}}
                 <div class="bg-white p-4 rounded-lg shadow-sm mb-6 flex items-center justify-between flex-wrap gap-4">
                     <div class="flex items-center gap-4">
-                        <label class="text-gray-700 font-medium">Sort By :</label>
+                        <label class="text-gray-700 font-medium">Trier par :</label>
                         <select wire:model.live="sort"
                                 class="border border-gray-300 rounded-lg px-4 py-2 focus:ring-indigo-500">
-                            <option value="newest">Newest</option>
-                            <option value="price_low">Price: Low to High</option>
-                            <option value="price_high">Price: High to Low</option>
-                            <option value="name_asc">Name: A to Z</option>
-                            <option value="name_desc">Name: Z to A</option>
-                            <option value="popular">Most Popular</option>
+                            <option value="newest">Nouveautés</option>
+                            <option value="price_low">Prix: du plus bas au plus élevé</option>
+                            <option value="price_high">Prix: du plus élevé au plus bas</option>
+                            <option value="name_asc">Nom: de A à Z</option>
+                            <option value="name_desc">Nom: Z à A</option>
+                            <option value="popular">Les plus populaires</option>
                         </select>
                     </div>
 
@@ -166,9 +166,9 @@
 
                 {{-- product grid --}}
                 @if ($products->count() > 0)
-                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-6 mb-8">
                         @foreach ($products as $product)
-                            <livewire:product-card :key="$product->id" :product="$product" />
+                            <livewire:product-card :key="$product->id" :product="$product" lazy />
                         @endforeach
                     </div>
 
@@ -182,14 +182,14 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
                         </svg>
                         <h3 class="text-xl font-semibold text-gray-900 mb-2">
-                            No products found
+                            Aucun produit trouvé
                         </h3>
                         <p class="text-gray-600 mb-4">
-                            Try adjusting your filters or search terms
+                            Essayez de modifier vos filtres ou vos termes de recherche.
                         </p>
                         <button wire:click="clearFilters"
                                 class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition">
-                            Clear Filters
+                            Effacer
                         </button>
                     </div>
                 @endif

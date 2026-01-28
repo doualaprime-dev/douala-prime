@@ -8,8 +8,11 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Attributes\Scope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\Searchable\Searchable;
+use Spatie\Searchable\SearchResult;
+use Spatie\Searchable\Search as SpatieSearch;
 
-class Product extends Model
+class Product extends Model implements Searchable
 {
     use SoftDeletes, HasFactory;
     protected $fillable = [
@@ -52,6 +55,18 @@ class Product extends Model
             'has_variants' => 'boolean',
         ];
     }
+
+    public function getSearchResult(): SearchResult
+    {
+        $url = route('products.show', $this->slug);
+
+        return new SearchResult(
+            $this,
+            $this->name,
+            $url
+        );
+    }
+
      /**
      * Scope to only active products
      */
@@ -122,32 +137,32 @@ class Product extends Model
      {
          return $this->belongsTo(Category::class);
      }
- 
+
      public function brand()
      {
          return $this->belongsTo(Brand::class);
      }
- 
+
      public function variants()
      {
          return $this->hasMany(ProductVariant::class);
      }
- 
+
      public function images()
      {
          return $this->hasMany(ProductImage::class)->orderBy('sort_order');
      }
- 
+
      public function primaryImage()
      {
          return $this->hasOne(ProductImage::class)->where('is_primary', true);
      }
- 
+
      public function reviews()
      {
          return $this->hasMany(Review::class);
      }
- 
+
      public function approvedReviews()
      {
          return $this->hasMany(Review::class)->where('is_approved', true);
@@ -197,6 +212,4 @@ class Product extends Model
             }
         });
     }
- 
-
 }

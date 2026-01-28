@@ -15,6 +15,8 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
 
+        <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
+
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -47,7 +49,7 @@
         <header class="bg-white shadow-sm sticky top-0 z-50">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <!-- Top Bar -->
-                <div class="flex items-center justify-between py-4">
+                <div class="flex flex-wrap items-center justify-between py-2 space-y-2">
                     <!-- Logo -->
                     <div class="flex items-center">
                         <a href="{{ route('home') }}" class="text-2xl font-bold text-yellow-500">
@@ -56,7 +58,7 @@
                     </div>
 
                     <!-- Search Bar (Desktop) -->
-                    <div class="hidden flex-1 mx-8 lg:block">
+                    <div class=" flex-1 mx-8 lg:block">
                         <livewire:search-bar />
                     </div>
 
@@ -80,7 +82,7 @@
                 </div>
 
                 <!-- Navigation -->
-                <nav class="border-t py-4">
+                <nav class="border-t py-3">
                     <ul class="flex items-center gap-8">
                         <li>
                             <a href="{{ route('home') }}" class="text-gray-700 hover:text-yellow-500 font-medium">
@@ -152,5 +154,7 @@
 
         @livewireScripts
         @filamentScripts
+
+        <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
     </body>
 </html>

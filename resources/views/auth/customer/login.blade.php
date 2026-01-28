@@ -49,7 +49,7 @@
                         <!-- Email -->
                         <div class="mb-4">
                             <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
-                                Adresse Email
+                                Adresse e-mail
                             </label>
                             <input  id="email"
                                     type="email"
