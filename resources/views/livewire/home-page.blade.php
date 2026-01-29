@@ -147,8 +147,8 @@
                         <a href="{{ route('products.index', ['brand' => $brand->slug]) }}"
                         class="group">
                             <div class="aspect-square rounded-lg overflow-hidden bg-gray-100 mb-3">
-                                @if($brand->image)
-                                    <img src="{{ asset('storage/' . $brand->image) }}"
+                                @if($brand->logo)
+                                    <img src="{{ asset('storage/' . $brand->logo) }}"
                                         alt="{{ $brand->name }}"
                                         class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
                                 @else
