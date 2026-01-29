@@ -18,6 +18,59 @@
         </div>
     </div>
 
+    <!-- Benefits Section -->
+    <section class="py-10 bg-gray-50">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+                <div class="text-center">
+                    <div class="inline-flex items-center justify-center w-10 h-10 bg-yellow-100 text-yellow-500 rounded-full mb-4">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Garantie de qualité</h3>
+                    <p class="text-sm text-gray-600">Tous nos produits sont soigneusement sélectionnés et soumis à des tests de qualité.</p>
+                </div>
+                <div class="text-center">
+                    <div class="inline-flex items-center justify-center w-10 h-10 bg-yellow-100 text-yellow-500 rounded-full mb-4">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Livraison rapide et gratuite</h3>
+                    <p class="text-sm text-gray-600">Livraison rapide directement chez vous</p>
+                </div>
+                <div class="text-center">
+                    <div class="inline-flex items-center justify-center w-10 h-10 bg-yellow-100 text-yellow-600 rounded-full mb-4">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Paiement sécurisé</h3>
+                    <p class="text-sm text-gray-600">Vos informations de paiement sont en sécurité chez nous</p>
+                </div>
+                <div class="text-center">
+                    <div class="inline-flex items-center justify-center w-10 h-10 bg-yellow-100 text-yellow-600 rounded-full mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Promotion et meilleures offres</h3>
+                    <p class="text-sm text-gray-600">Aux Prix Imbattables</p>
+                </div>
+                <div class="text-center">
+                    <div class="inline-flex items-center justify-center w-10 h-10 bg-yellow-100 text-yellow-600 rounded-full mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Assistance 24h/24 et 7j/7</h3>
+                    <p class="text-sm text-gray-600">Service Après Vente De Qualité</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Categories Section -->
     <section class="py-4 bg-white mt-4">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -98,41 +151,6 @@
                 @foreach($newArrivals as $product)
                     <livewire:product-card :product="$product" :key="'new-' . $product->id" lazy  />
                 @endforeach
-            </div>
-        </div>
-    </section>
-
-    <!-- Benefits Section -->
-    <section class="py-4 bg-gray-50">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="text-center">
-                    <div class="inline-flex items-center justify-center w-16 h-16 bg-yellow-100 text-yellow-500 rounded-full mb-4">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Quality Guarantee</h3>
-                    <p class="text-gray-600">All products are carefully selected and quality tested</p>
-                </div>
-                <div class="text-center">
-                    <div class="inline-flex items-center justify-center w-16 h-16 bg-yellow-100 text-yellow-500 rounded-full mb-4">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Fast Shipping</h3>
-                    <p class="text-gray-600">Quick delivery right to your doorstep</p>
-                </div>
-                <div class="text-center">
-                    <div class="inline-flex items-center justify-center w-16 h-16 bg-yellow-100 text-yellow-600 rounded-full mb-4">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Secure Payment</h3>
-                    <p class="text-gray-600">Your payment information is safe with us</p>
-                </div>
             </div>
         </div>
     </section>

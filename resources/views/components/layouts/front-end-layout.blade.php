@@ -118,8 +118,11 @@
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div>
-                        <h3 class="text-lg font-bold mb-4">{{ config('app.name') }}</h3>
-                        <p class="text-gray-400">Votre guichet unique pour des produits de qualité.</p>
+                        <h3 class="text-lg font-bold mb-4"><a href="{{ route('home') }}" class="text-2xl font-bold text-yellow-500">
+                            <img src="{{ asset('images/logo.png') }}" alt="Promo" class="w-25 h-15" />
+                        </a></h3>
+                        <p class="text-gray-400">Douala-Prime propose une vaste gamme de produits de haute qualité à des prix compétitifs. Nous nous engageons à vous offrir une expérience d'achat exceptionnelle,
+                            avec une livraison rapide et un excellent service client..</p>
                     </div>
                     <div>
                         <h4 class="font-semibold mb-4">Liens rapides</h4>
@@ -127,6 +130,7 @@
                             <li><a href="{{ route('products.index') }}" class="text-gray-400 hover:text-white">Boutique</a></li>
                             <li><a href="#" class="text-gray-400 hover:text-white">A Propos</a></li>
                             <li><a href="#" class="text-gray-400 hover:text-white">Contact</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white">Blog</a></li>
                         </ul>
                     </div>
                     <div>
@@ -134,20 +138,45 @@
                         <ul class="space-y-2">
                             <li><a href="{{ route('products.index') }}" class="text-gray-400 hover:text-white">Informations sur la livraison</a></li>
                             <li><a href="#" class="text-gray-400 hover:text-white">Retours</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white">FAQ</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white">Historique des commandes</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white">Liste de souhaits</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white">Conditions générales</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li>
                         </ul>
                     </div>
                     <div>
-                        <h4 class="font-semibold mb-4">My Account</h4>
+                        <h4 class="font-semibold mb-4">Mon Compte</h4>
                         <ul class="space-y-2">
                             <li><a href="{{ route('customer.dashboard') }}" class="text-gray-400 hover:text-white">Tableau de bord</a></li>
                             <li><a href="{{ route('customer.orders') }}" class="text-gray-400 hover:text-white">Commandes</a></li>
                             <li><a href="{{ route('customer.profile') }}" class="text-gray-400 hover:text-white">Profil</a></li>
+                            <li><span className="text-gray-400">
+                                    Deido Grand Moulin
+                                    <br />
+                                    MRS Omnisports
+                                </span></li>
+                            <li><span className="text-gray-400">
+                                    +237 670 85 72 04
+                                    <br />
+                                    +237 699 01 35 35
+                                </span></li>
+                            <li><span className="text-gray-400">doualaprime@commande.com</span></li>
+                            <li><span className="text-gray-400">Lundi - Samedi : 8H - 18H</span></li>
+                            <li></li>
                         </ul>
                     </div>
                 </div>
-                <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+
+                <hr class="my-8 border-gray-700" />
+
+                <div class="flex flex-col items-center justify-between md:flex-row">
                     <p>&copy; {{ date('Y') }} {{ config('app.name') }}. Tous droits réservés.</p>
+                    <div class="flex space-x-6">
+                        <img src="/images/payment-4.png" alt="Payment" class="h-8" />
+                        <img src="/images/payment-3.png" alt="Payment" class="h-8" />
+                        <img src="/images/payment-2.png" alt="Payment" class="h-8" />
+                        <img src="/images/payment-1.png" alt="Payment" class="h-8" />
+                    </div>
                 </div>
             </div>
         </footer>
