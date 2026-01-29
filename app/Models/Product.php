@@ -12,7 +12,7 @@ use Spatie\Searchable\Searchable;
 use Spatie\Searchable\SearchResult;
 use Spatie\Searchable\Search as SpatieSearch;
 
-class Product extends Model implements Searchable
+class Product extends Model
 {
     use SoftDeletes, HasFactory;
     protected $fillable = [
@@ -56,16 +56,16 @@ class Product extends Model implements Searchable
         ];
     }
 
-    public function getSearchResult(): SearchResult
-    {
-        $url = route('products.show', $this->slug);
+    // public function getSearchResult(): SearchResult
+    // {
+    //     $url = route('products.show', $this->slug);
 
-        return new SearchResult(
-            $this,
-            $this->name,
-            $url
-        );
-    }
+    //     return new SearchResult(
+    //         $this,
+    //         $this->title,
+    //         $url
+    //     );
+    // }
 
      /**
      * Scope to only active products

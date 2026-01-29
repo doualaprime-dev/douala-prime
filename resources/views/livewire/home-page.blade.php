@@ -1,5 +1,5 @@
 <div>
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="-mx-4 flex flex-wrap">
             <div class="mb-8 w-full px-4 lg:mb-0 lg:w-3/4">
                 <livewire:swiper-slider />
@@ -19,7 +19,7 @@
     </div>
 
     <!-- Categories Section -->
-    <section class="py-16 bg-white">
+    <section class="py-4 bg-white mt-4">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold text-gray-900 mb-8">Acheter par catégorie</h2>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
@@ -33,12 +33,12 @@
                                         alt="{{ $category->name }}"
                                         class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
                                 @else
-                                    <div class="w-full h-full flex items-center justify-center bg-blue-600">
+                                    <div class="w-full h-full flex items-center justify-center bg-yellow-500">
                                         <span class="text-4xl text-white">{{ substr($category->name, 0, 1) }}</span>
                                     </div>
                                 @endif
                             </div>
-                            <h3 class="text-center font-medium text-gray-900 group-hover:text-blue-600">
+                            <h3 class="text-center font-medium text-gray-900 group-hover:text-yellow-500">
                                 {{ $category->name }}
                             </h3>
                             <p class="text-center text-sm text-gray-500">{{ $category->products_count }} items</p>
@@ -65,12 +65,12 @@
     </section>
 
     <!-- Featured Products -->
-    <section class="py-16 bg-gray-50">
+    <section class="py-4 bg-gray-50">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between mb-8">
                 <h2 class="text-3xl font-bold text-gray-900">Produits en vedettes</h2>
                 <a href="{{ route('products.index', ['featured' => 1]) }}"
-                   class="text-blue-600 hover:text-indigo-700 font-medium">
+                   class="text-yellow-500 hover:text-yellow-600 font-medium">
                     Afficher tout →
                 </a>
             </div>
@@ -84,12 +84,12 @@
     </section>
 
     <!-- New Arrivals -->
-    <section class="py-16 bg-white">
+    <section class="py-4 bg-white">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between mb-8">
                 <h2 class="text-3xl font-bold text-gray-900">Nouveautés</h2>
                 <a href="{{ route('products.index', ['sort' => 'newest']) }}"
-                   class="text-blue-600 hover:text-indigo-700 font-medium">
+                   class="text-yellow-500 hover:text-yellow-600 font-medium">
                     Afficher tout →
                 </a>
             </div>
@@ -103,11 +103,11 @@
     </section>
 
     <!-- Benefits Section -->
-    <section class="py-16 bg-gray-50">
+    <section class="py-4 bg-gray-50">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="text-center">
-                    <div class="inline-flex items-center justify-center w-16 h-16 bg-indigo-100 text-blue-600 rounded-full mb-4">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-yellow-100 text-yellow-500 rounded-full mb-4">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                         </svg>
@@ -116,7 +116,7 @@
                     <p class="text-gray-600">All products are carefully selected and quality tested</p>
                 </div>
                 <div class="text-center">
-                    <div class="inline-flex items-center justify-center w-16 h-16 bg-indigo-100 text-blue-600 rounded-full mb-4">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-yellow-100 text-yellow-500 rounded-full mb-4">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
@@ -125,7 +125,7 @@
                     <p class="text-gray-600">Quick delivery right to your doorstep</p>
                 </div>
                 <div class="text-center">
-                    <div class="inline-flex items-center justify-center w-16 h-16 bg-indigo-100 text-blue-600 rounded-full mb-4">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-yellow-100 text-yellow-600 rounded-full mb-4">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
                         </svg>
@@ -138,7 +138,7 @@
     </section>
 
     <!-- Brand Section -->
-    <section class="py-16 bg-white">
+    <section class="py-4 bg-white">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold text-gray-900 mb-8">Acheter par marque</h2>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
@@ -152,12 +152,12 @@
                                         alt="{{ $brand->name }}"
                                         class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
                                 @else
-                                    <div class="w-full h-full flex items-center justify-center bg-blue-600">
+                                    <div class="w-full h-full flex items-center justify-center bg-yellow-500">
                                         <span class="text-4xl text-white">{{ substr($brand->name, 0, 1) }}</span>
                                     </div>
                                 @endif
                             </div>
-                            <h3 class="text-center font-medium text-gray-900 group-hover:text-blue-600">
+                            <h3 class="text-center font-medium text-gray-900 group-hover:text-yellow-500">
                                 {{ $brand->name }}
                             </h3>
                             <p class="text-center text-sm text-gray-500">{{ $brand->products_count }} items</p>
@@ -184,12 +184,12 @@
     </section>
 
     <!-- Réfrigérateurs -->
-    <section class="py-16 bg-white">
+    <section class="py-4 bg-white">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between mb-8">
                 <h2 class="text-3xl font-bold text-gray-900">Réfrigérateurs</h2>
                 <a href="{{ route('products.index', ['sort' => 'newest']) }}"
-                   class="text-blue-600 hover:text-indigo-700 font-medium">
+                   class="text-yellow-500 hover:text-yellow-600 font-medium">
                     Afficher tout →
                 </a>
             </div>
@@ -203,12 +203,12 @@
     </section>
 
     <!-- Congélateurs -->
-    <section class="py-16 bg-white">
+    <section class="py-4 bg-white">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between mb-8">
                 <h2 class="text-3xl font-bold text-gray-900">Congélateurs</h2>
                 <a href="{{ route('products.index', ['sort' => 'newest']) }}"
-                   class="text-blue-600 hover:text-indigo-700 font-medium">
+                   class="text-yellow-500 hover:text-yellow-600 font-medium">
                     Afficher tout →
                 </a>
             </div>
@@ -222,12 +222,12 @@
     </section>
 
     <!-- Cuisinières -->
-    <section class="py-16 bg-white">
+    <section class="py-4 bg-white">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between mb-8">
                 <h2 class="text-3xl font-bold text-gray-900">Cuisinières</h2>
                 <a href="{{ route('products.index', ['sort' => 'newest']) }}"
-                   class="text-blue-600 hover:text-indigo-700 font-medium">
+                   class="text-yellow-500 hover:text-yellow-600 font-medium">
                     Afficher tout →
                 </a>
             </div>
@@ -241,12 +241,12 @@
     </section>
 
     <!-- Machines à laver -->
-    <section class="py-16 bg-white">
+    <section class="py-4 bg-white">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between mb-8">
                 <h2 class="text-3xl font-bold text-gray-900">Machines à laver</h2>
                 <a href="{{ route('products.index', ['sort' => 'newest']) }}"
-                   class="text-blue-600 hover:text-indigo-700 font-medium">
+                   class="text-yellow-500 hover:text-yellow-600 font-medium">
                     Afficher tout →
                 </a>
             </div>
@@ -260,12 +260,12 @@
     </section>
 
     <!-- Climatiseurs -->
-    <section class="py-16 bg-white">
+    <section class="py-4 bg-white">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between mb-8">
                 <h2 class="text-3xl font-bold text-gray-900">Climatiseurs</h2>
                 <a href="{{ route('products.index', ['sort' => 'newest']) }}"
-                   class="text-blue-600 hover:text-indigo-700 font-medium">
+                   class="text-yellow-500 hover:text-yellow-600 font-medium">
                     Afficher tout →
                 </a>
             </div>
@@ -279,12 +279,12 @@
     </section>
 
     <!-- Télévisions -->
-    <section class="py-16 bg-white">
+    <section class="py-4 bg-white">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between mb-8">
                 <h2 class="text-3xl font-bold text-gray-900">Télévisions</h2>
                 <a href="{{ route('products.index', ['sort' => 'newest']) }}"
-                   class="text-blue-600 hover:text-indigo-700 font-medium">
+                   class="text-yellow-500 hover:text-yellow-600 font-medium">
                     Afficher tout →
                 </a>
             </div>
@@ -298,12 +298,12 @@
     </section>
 
     <!-- Appareils de cuisson -->
-    <section class="py-16 bg-white">
+    <section class="py-4 bg-white">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between mb-8">
                 <h2 class="text-3xl font-bold text-gray-900">Appareils de cuisson</h2>
                 <a href="{{ route('products.index', ['sort' => 'newest']) }}"
-                   class="text-blue-600 hover:text-indigo-700 font-medium">
+                   class="text-yellow-500 hover:text-yellow-600 font-medium">
                     Afficher tout →
                 </a>
             </div>
@@ -317,12 +317,12 @@
     </section>
 
     <!-- Blender et hachoir -->
-    <section class="py-16 bg-white">
+    <section class="py-4 bg-white">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between mb-8">
                 <h2 class="text-3xl font-bold text-gray-900">Blender et hachoir </h2>
                 <a href="{{ route('products.index', ['sort' => 'newest']) }}"
-                   class="text-blue-600 hover:text-indigo-700 font-medium">
+                   class="text-yellow-500 hover:text-yellow-600 font-medium">
                     Afficher tout →
                 </a>
             </div>
@@ -336,12 +336,12 @@
     </section>
 
     <!-- Appareils de patisserie et jus -->
-    <section class="py-16 bg-white">
+    <section class="py-4 bg-white">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between mb-8">
                 <h2 class="text-3xl font-bold text-gray-900">Appareils de patisserie et jus</h2>
                 <a href="{{ route('products.index', ['sort' => 'newest']) }}"
-                   class="text-blue-600 hover:text-indigo-700 font-medium">
+                   class="text-yellow-500 hover:text-yellow-600 font-medium">
                     Afficher tout →
                 </a>
             </div>
@@ -355,12 +355,12 @@
     </section>
 
     <!-- Appareils pour petit déj -->
-    <section class="py-16 bg-white">
+    <section class="py-4 bg-white">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between mb-8">
                 <h2 class="text-3xl font-bold text-gray-900">Appareils pour petit déj</h2>
                 <a href="{{ route('products.index', ['sort' => 'newest']) }}"
-                   class="text-blue-600 hover:text-indigo-700 font-medium">
+                   class="text-yellow-500 hover:text-yellow-600 font-medium">
                     Afficher tout →
                 </a>
             </div>
@@ -374,12 +374,12 @@
     </section>
 
     <!-- Appareils de ménage -->
-    <section class="py-16 bg-white">
+    <section class="py-4 bg-white">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between mb-8">
                 <h2 class="text-3xl font-bold text-gray-900">Appareils de ménage</h2>
                 <a href="{{ route('products.index', ['sort' => 'newest']) }}"
-                   class="text-blue-600 hover:text-indigo-700 font-medium">
+                   class="text-yellow-500 hover:text-yellow-600 font-medium">
                     Afficher tout →
                 </a>
             </div>
@@ -393,12 +393,12 @@
     </section>
 
     <!-- Audio & Hifi -->
-    <section class="py-16 bg-white">
+    <section class="py-4 bg-white">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between mb-8">
                 <h2 class="text-3xl font-bold text-gray-900">Audio & Hifi</h2>
                 <a href="{{ route('products.index', ['sort' => 'newest']) }}"
-                   class="text-blue-600 hover:text-indigo-700 font-medium">
+                   class="text-yellow-500 hover:text-yellow-600 font-medium">
                     Afficher tout →
                 </a>
             </div>

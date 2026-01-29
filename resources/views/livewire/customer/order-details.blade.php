@@ -4,9 +4,9 @@
         <div class="mb-8">
             <nav class="text-sm mb-4">
                 <ol class="flex items-center gap-2">
-                    <li><a href="{{ route('customer.dashboard') }}" class="text-gray-500 hover:text-blue-600">Mon Compte</a></li>
+                    <li><a href="{{ route('customer.dashboard') }}" class="text-gray-500 hover:text-yellow-600">Mon Compte</a></li>
                     <li class="text-gray-400">/</li>
-                    <li><a href="{{ route('customer.orders') }}" class="text-gray-500 hover:text-blue-600">Commandes</a></li>
+                    <li><a href="{{ route('customer.orders') }}" class="text-gray-500 hover:text-yellow-600">Commandes</a></li>
                     <li class="text-gray-400">/</li>
                     <li class="text-gray-900 font-medium">{{ $order->order_number }}</li>
                 </ol>
@@ -112,7 +112,7 @@
                         @foreach($order->statusHistories as $history)
                             <div class="flex gap-4">
                                 <div class="flex-shrink-0">
-                                    <div class="w-10 h-10 rounded-full bg-indigo-100 text-blue-600 flex items-center justify-center">
+                                    <div class="w-10 h-10 rounded-full bg-indigo-100 text-yellow-500 flex items-center justify-center">
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                         </svg>
@@ -146,7 +146,7 @@
                         @if($order->discount_amount > 0)
                             <div class="flex justify-between text-green-600">
                                 <span>Rabais</span>
-                                <span class="font-medium">-{{ number_format($order->discount_amount, 2) }} F CFA</span>
+                                <span class="font-medium">-{{ number_format($order->discount_amount, 3) }} F CFA</span>
                             </div>
                         @endif
                         <div class="flex justify-between">

@@ -22,7 +22,7 @@
                 <!-- Logo -->
                 <div class="text-center mb-8">
                     <a href="{{ route('home') }}" class="text-3xl font-bold text-yellow-500">
-                        {{ config('app.name') }}
+                        <img src="{{ asset('images/logo.png') }}" alt="Promo" class="w-25 h-15 mx-auto" />
                     </a>
                     <h2 class="mt-6 text-3xl font-bold text-gray-900">
                         Bienvenu

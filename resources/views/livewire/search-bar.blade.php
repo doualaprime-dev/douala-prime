@@ -37,17 +37,30 @@
                 </div>
                 <!-- Modal body -->
                 <div class="space-y-4 md:space-y-6 py-4 md:py-6">
-                    <input wire:model.live="search" type="text" class="rounded w-full" placeholder="Recherche de produits..." autocomplete="off">
+                    <input wire:model.live.debounce.5000ms="search" type="text" class="rounded w-full" placeholder="Recherche de produits..." autocomplete="off">
 
-                    <div class="w-full">
-                        @foreach ($products as $product)
-                            <a href="{{ route('products.show', $product->slug) }}">
-                                <p class="w-full p-2 m-2 bg-gray-200 hover:bg-gray-300 cursor-pointer">
-                                    {{ $product->name }} <br>
-                                    <span class="text-xs">{{ $product->category->name }}</span>
-                                </p>
-                            </a>
-                        @endforeach
+                    <div>
+                        @if (!empty($products))
+                            @foreach ($products as $product)
+                                <a href="{{ route('products.show', $product->slug) }}">
+                                    <div class="w-full flex flex-wrap bg-gray-200 hover:bg-gray-300 cursor-pointer my-2">
+                                        @if ($product->primaryImage)
+                                            <img src="{{ asset('storage/' . $product->primaryImage->image_path) }}"
+                                                alt="{{ $product->name }}"
+                                                class="w-20 h-20 object-cover group-hover:scale-110 transition duration-300">
+                                        @else
+                                            <div class="flex items-center justify-center bg-gradient-to-br from-gray-300 to-gray-400">
+                                                <span class="text-6xl text-gray-500">{{ substr($product->name, 0, 1) }}</span>
+                                            </div>
+                                        @endif
+                                        <p class="p-2 m-2">
+                                            {{ $product->name }} <br>
+                                            <span class="text-xs">{{ $product->category->name }}</span>
+                                        </p>
+                                    </div>
+                                </a>
+                            @endforeach
+                        @endif
                     </div>
                 </div>
             </div>

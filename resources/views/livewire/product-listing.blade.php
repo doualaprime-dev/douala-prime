@@ -34,36 +34,36 @@
                         <div class="bg-white p-4 rounded-lg shadow-sm">
                             <div class="flex items-center justify-between mb-3">
                                 <h3 class="font-semibold text-gray-900">Active Filters</h3>
-                                <button wire:click="clearFilters" class="text-sm text-blue-600 hover:text-indigo-700">
+                                <button wire:click="clearFilters" class="text-sm text-yellow-500 hover:text-yellow-600">
                                     Effacer tout
                                 </button>
                             </div>
                             <div class="flex flex-wrap gap-2">
                                 @if ($search)
-                                    <span class="inline-flex items-center gap-1 bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">
+                                    <span class="inline-flex items-center gap-1 bg-yellow-100 text-yellow-500 px-3 py-1 rounded-full text-sm">
                                         Recherche: {{ $search }}
-                                        <button wire:click="$set('search', '')" class="hover:text-indigo-900">X</button>
+                                        <button wire:click="$set('search', '')" class="hover:text-yellow-600">X</button>
                                     </span>
                                 @endif
 
                                 @if ($category)
-                                    <span class="inline-flex items-center gap-1 bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">
+                                    <span class="inline-flex items-center gap-1 bg-yellow-100 text-yellow-500 px-3 py-1 rounded-full text-sm">
                                         Categorie
-                                        <button wire:click="$set('category', '')" class="hover:text-indigo-900">X</button>
+                                        <button wire:click="$set('category', '')" class="hover:text-yellow-600">X</button>
                                     </span>
                                 @endif
 
                                 @if ($brand)
-                                    <span class="inline-flex items-center gap-1 bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">
+                                    <span class="inline-flex items-center gap-1 bg-yellow-100 text-yellow-500 px-3 py-1 rounded-full text-sm">
                                         Marque
-                                        <button wire:click="$set('brand', '')" class="hover:text-indigo-900">X</button>
+                                        <button wire:click="$set('brand', '')" class="hover:text-yellow-600">X</button>
                                     </span>
                                 @endif
 
                                 @if ($featured)
-                                    <span class="inline-flex items-center gap-1 bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm">
+                                    <span class="inline-flex items-center gap-1 bg-yellow-100 text-yellow-500 px-3 py-1 rounded-full text-sm">
                                         En vedette
-                                        <button wire:click="$set('featured', '')" class="hover:text-indigo-900">X</button>
+                                        <button wire:click="$set('featured', '')" class="hover:text-yellow-600">X</button>
                                     </span>
                                 @endif
                             </div>
@@ -76,14 +76,14 @@
                         <ul class="space-y-2 max-h-64 overflow-y-auto">
                             <li>
                                 <button wire:click="$set('category', '')"
-                                        class="w-full text-left px-3 py-2 rounded {{ !$category ? 'bg-indigo-50 text-indigo-700' : 'text-gray-700' }}">
+                                        class="w-full text-left px-3 py-2 rounded {{ !$category ? 'bg-yellow-50 text-yellow-500' : 'text-gray-700' }}">
                                     Toutes les Categories
                                 </button>
                             </li>
                             @foreach ($categories as $cat)
                                 <li>
                                     <button wire:click="$set('category', '{{ $cat->slug }}')"
-                                        class="w-full text-left px-3 py-2 rounded {{ $category === $cat->slug ? 'bg-indigo-50 text-indigo-700' : 'text-gray-700' }}">
+                                        class="w-full cursor-pointer text-left px-3 py-2 rounded {{ $category === $cat->slug ? 'bg-yellow-50 text-yellow-500' : 'text-gray-700' }}">
                                         {{ $cat->name }}
                                         <span class="text-sm text-gray-500">{{ $cat->products_count }}</span>
                                     </button>
@@ -98,14 +98,14 @@
                         <ul class="space-y-2 max-h-64 overflow-y-auto">
                             <li>
                                 <button wire:click="$set('brand', '')"
-                                        class="w-full text-left px-3 py-2 rounded {{ !$brand ? 'bg-indigo-50 text-indigo-700' : 'text-gray-700' }}">
+                                        class="w-full cursor-pointer text-left px-3 py-2 rounded {{ !$brand ? 'bg-yellow-50 text-yellow-500' : 'text-gray-700' }}">
                                     Toutes les marques
                                 </button>
                             </li>
                             @foreach ($brands as $br)
                                 <li>
                                     <button wire:click="$set('brand', '{{ $br->slug }}')"
-                                        class="w-full text-left px-3 py-2 rounded {{ $brand === $br->slug ? 'bg-indigo-50 text-indigo-700' : 'text-gray-700' }}">
+                                        class="w-full text-left px-3 py-2 rounded {{ $brand === $br->slug ? 'bg-yellow-50 text-yellow-500' : 'text-gray-700' }}">
                                         {{ $br->name }}
                                         <span class="text-sm text-gray-500">{{ $br->products_count }}</span>
                                     </button>
@@ -122,16 +122,16 @@
                                 <input  type="number"
                                         wire:model="minPrice"
                                         placeholder="Min"
-                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent">
                                 <span class="text-gray-500">-</span>
                                 <input  type="number"
                                         wire:model="maxPrice"
                                         placeholder="Max"
-                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent">
                             </div>
 
                             <button wire:click="applyPriceFilter"
-                                    class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition">
+                                    class="w-full bg-yellow-500 text-white py-2 px-4 rounded-lg hover:bg-yellow-600 transition">
                                 Appliquer
                             </button>
                         </div>
@@ -146,7 +146,7 @@
                     <div class="flex items-center gap-4">
                         <label class="text-gray-700 font-medium">Trier par :</label>
                         <select wire:model.live="sort"
-                                class="border border-gray-300 rounded-lg px-4 py-2 focus:ring-indigo-500">
+                                class="border border-gray-300 rounded-lg px-4 py-2 focus:ring-yellow-500">
                             <option value="newest">Nouveautés</option>
                             <option value="price_low">Prix: du plus bas au plus élevé</option>
                             <option value="price_high">Prix: du plus élevé au plus bas</option>
@@ -188,7 +188,7 @@
                             Essayez de modifier vos filtres ou vos termes de recherche.
                         </p>
                         <button wire:click="clearFilters"
-                                class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition">
+                                class="bg-yellow-500 text-white px-6 py-2 rounded-lg hover:bg-yellow-600 transition">
                             Effacer
                         </button>
                     </div>

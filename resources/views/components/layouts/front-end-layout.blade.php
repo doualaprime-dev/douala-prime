@@ -83,7 +83,7 @@
 
                 <!-- Navigation -->
                 <nav class="border-t py-3">
-                    <ul class="flex items-center gap-8">
+                    <ul class="flex flex-wrap items-center gap-8">
                         <li>
                             <a href="{{ route('home') }}" class="text-gray-700 hover:text-yellow-500 font-medium">
                                 Accueil
@@ -95,13 +95,13 @@
                             </a>
                         </li>
 
-                        {{-- @foreach (\App\Models\Category::active()->sorted()->limit(5)->get() as $category)
+                        @foreach (\App\Models\Category::active()->sorted()->limit(5)->get() as $category)
                             <li>
                                 <a href="{{ route('products.index', ['category' => $category->slug]) }}" class="text-gray-700 hover:text-yellow-500 font-medium">
                                     {{ $category->name }}
                                 </a>
                             </li>
-                        @endforeach --}}
+                        @endforeach
                     </ul>
                 </nav>
             </div>

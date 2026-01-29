@@ -7,8 +7,8 @@
         <div class="mb-8">
             <div class="flex items-center justify-center">
                 <div class="flex items-center">
-                    <div class="flex items-center {{ $step >= 1 ? 'text-blue-600' : 'text-gray-400' }}">
-                        <div class="flex items-center justify-center w-10 h-10 rounded-full border-2 {{ $step >= 1 ? 'border-blue-600 bg-blue-600 text-white' : 'border-gray-300' }}">
+                    <div class="flex items-center {{ $step >= 1 ? 'text-yellow-500' : 'text-gray-400' }}">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full border-2 {{ $step >= 1 ? 'border-yellow-500 bg-yellow-500 text-white' : 'border-gray-300' }}">
                             @if($step > 1)
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -19,9 +19,9 @@
                         </div>
                         <span class="ml-2 font-medium">Expédition</span>
                     </div>
-                    <div class="w-24 h-1 mx-4 {{ $step >= 2 ? 'bg-blue-600' : 'bg-gray-300' }}"></div>
-                    <div class="flex items-center {{ $step >= 2 ? 'text-blue-600' : 'text-gray-400' }}">
-                        <div class="flex items-center justify-center w-10 h-10 rounded-full border-2 {{ $step >= 2 ? 'border-blue-600 bg-blue-600 text-white' : 'border-gray-300' }}">
+                    <div class="w-24 h-1 mx-4 {{ $step >= 2 ? 'bg-yellow-500' : 'bg-gray-300' }}"></div>
+                    <div class="flex items-center {{ $step >= 2 ? 'text-yellow-500' : 'text-gray-400' }}">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full border-2 {{ $step >= 2 ? 'border-yellow-500 bg-yellow-500 text-white' : 'border-gray-300' }}">
                             @if($step > 2)
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -32,9 +32,9 @@
                         </div>
                         <span class="ml-2 font-medium">Avis</span>
                     </div>
-                    <div class="w-24 h-1 mx-4 {{ $step >= 3 ? 'bg-blue-600' : 'bg-gray-300' }}"></div>
-                    <div class="flex items-center {{ $step >= 3 ? 'text-blue-600' : 'text-gray-400' }}">
-                        <div class="flex items-center justify-center w-10 h-10 rounded-full border-2 {{ $step >= 3 ? 'border-blue-600 bg-blue-600 text-white' : 'border-gray-300' }}">
+                    <div class="w-24 h-1 mx-4 {{ $step >= 3 ? 'bg-yellow-500' : 'bg-gray-300' }}"></div>
+                    <div class="flex items-center {{ $step >= 3 ? 'text-yellow-500' : 'text-gray-400' }}">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full border-2 {{ $step >= 3 ? 'border-yellow-500 bg-yellow-500 text-white' : 'border-gray-300' }}">
                             <span class="font-semibold">3</span>
                         </div>
                         <span class="ml-2 font-medium">Paiement</span>
@@ -63,7 +63,7 @@
                                 <label class="flex items-center gap-2 cursor-pointer">
                                     <input type="checkbox"
                                            wire:model.live="useExistingAddress"
-                                           class="w-4 h-4 text-blue-600 rounded">
+                                           class="w-4 h-4 text-yellow-500 rounded">
                                     <span class="font-medium">Utiliser l'adresse enregistrée</span>
                                 </label>
                             </div>
@@ -76,14 +76,14 @@
                                                    wire:model="selectedAddressId"
                                                    value="{{ $address->id }}"
                                                    class="peer sr-only">
-                                            <div class="border-2 rounded-lg p-4 peer-checked:border-blue-600 peer-checked:bg-indigo-50 hover:border-indigo-400 transition">
+                                            <div class="border-2 rounded-lg p-4 peer-checked:border-yellow-600 peer-checked:bg-indigo-50 hover:border-indigo-400 transition">
                                                 <div class="flex items-start justify-between">
                                                     <div>
                                                         <p class="font-semibold text-gray-900">{{ $address->full_name }}</p>
                                                         <p class="text-gray-600">{{ $address->phone }}</p>
                                                         <p class="text-gray-600 mt-2">{{ $address->full_address }}</p>
                                                         @if($address->is_default)
-                                                            <span class="inline-block mt-2 bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">
+                                                            <span class="inline-block mt-2 bg-yellow-100 text-yellow-500 text-xs px-2 py-1 rounded">
                                                                 Par Défaut
                                                             </span>
                                                         @endif
@@ -103,7 +103,7 @@
                                     <label class="block text-sm font-medium text-gray-700 mb-2">Nom et prénom *</label>
                                     <input type="text"
                                            wire:model="full_name"
-                                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500">
                                     @error('full_name') <span class="text-red-600 text-sm">{{ $message }}</span> @enderror
                                 </div>
 
@@ -111,7 +111,7 @@
                                     <label class="block text-sm font-medium text-gray-700 mb-2">Téléphone *</label>
                                     <input type="tel"
                                            wire:model="phone"
-                                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500">
                                     @error('phone') <span class="text-red-600 text-sm">{{ $message }}</span> @enderror
                                 </div>
 
@@ -119,7 +119,7 @@
                                     <label class="block text-sm font-medium text-gray-700 mb-2">Adresse 1 *</label>
                                     <input type="text"
                                            wire:model="address_line_1"
-                                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500">
                                     @error('address_line_1') <span class="text-red-600 text-sm">{{ $message }}</span> @enderror
                                 </div>
 
@@ -127,7 +127,7 @@
                                     <label class="block text-sm font-medium text-gray-700 mb-2">Adresse 2</label>
                                     <input type="text"
                                            wire:model="address_line_2"
-                                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500">
                                 </div>
 
                                 <div class="grid grid-cols-2 gap-4">
@@ -135,7 +135,7 @@
                                         <label class="block text-sm font-medium text-gray-700 mb-2">Ville *</label>
                                         <input type="text"
                                                wire:model="city"
-                                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500">
                                         @error('city') <span class="text-red-600 text-sm">{{ $message }}</span> @enderror
                                     </div>
 
@@ -143,7 +143,7 @@
                                         <label class="block text-sm font-medium text-gray-700 mb-2">Région</label>
                                         <input type="text"
                                                wire:model="state"
-                                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500">
                                     </div>
                                 </div>
 
@@ -152,14 +152,14 @@
                                         <label class="block text-sm font-medium text-gray-700 mb-2">Code Postal *</label>
                                         <input type="text"
                                                wire:model="postal_code"
-                                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500">
                                         @error('postal_code') <span class="text-red-600 text-sm">{{ $message }}</span> @enderror
                                     </div>
 
                                     <div>
                                         <label class="block text-sm font-medium text-gray-700 mb-2">Pays *</label>
                                         <select wire:model="country"
-                                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500">
                                             <option value="US">Cameroun</option>
                                             <option value="CA">Gabon</option>
                                             <option value="UK">Congo</option>
@@ -178,7 +178,7 @@
                                 ← Retour au panier
                             </a>
                             <button wire:click="nextStep"
-                                    class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-indigo-700 transition font-semibold">
+                                    class="bg-yellow-500 text-white px-8 py-3 rounded-lg hover:bg-yellow-600 transition font-semibold">
                                 Poursuivre ses achats
                             </button>
                         </div>
@@ -221,7 +221,7 @@
                             <textarea wire:model="customerNotes"
                                       rows="3"
                                       placeholder="Special instructions for your order..."
-                                      class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"></textarea>
+                                      class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500"></textarea>
                         </div>
 
                         <div class="flex justify-between pt-6 border-t">
@@ -230,7 +230,7 @@
                                 ← Retour à la page Expédition
                             </button>
                             <button wire:click="nextStep"
-                                    class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-indigo-700 transition font-semibold">
+                                    class="bg-yellow-600 text-white px-8 py-3 rounded-lg hover:bg-yellow-600 transition font-semibold">
                                 Poursuivre le paiement
                             </button>
                         </div>
@@ -248,7 +248,7 @@
                                        wire:model="paymentMethod"
                                        value="stripe"
                                        class="peer sr-only">
-                                <div class="border-2 rounded-lg p-4 peer-checked:border-blue-600 peer-checked:bg-indigo-50 hover:border-indigo-400 transition">
+                                <div class="border-2 rounded-lg p-4 peer-checked:border-yellow-500 peer-checked:bg-indigo-50 hover:border-yellow-400 transition">
                                     <div class="flex items-center justify-between">
                                         <div class="flex items-center gap-3">
                                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -268,7 +268,7 @@
                                        wire:model="paymentMethod"
                                        value="cash_on_delivery"
                                        class="peer sr-only">
-                                <div class="border-2 rounded-lg p-4 peer-checked:border-blue-600 peer-checked:bg-indigo-50 hover:border-indigo-400 transition">
+                                <div class="border-2 rounded-lg p-4 peer-checked:border-yellow-500 peer-checked:bg-indigo-50 hover:border-indigo-400 transition">
                                     <div class="flex items-center justify-between">
                                         <div class="flex items-center gap-3">
                                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -290,7 +290,7 @@
                                 ← Retour à la revue
                             </button>
                             <button wire:click="placeOrder"
-                                    class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-indigo-700 transition font-semibold">
+                                    class="bg-yellow-500 text-white px-8 py-3 rounded-lg hover:bg-yellow-600 transition font-semibold">
                                 Passer la commande
                             </button>
                         </div>
@@ -306,13 +306,13 @@
                     <div class="space-y-3 mb-6">
                         <div class="flex justify-between">
                             <span class="text-gray-600">Sous-total</span>
-                            <span class="font-medium">${{ number_format($subtotal, 2) }}</span>
+                            <span class="font-medium">{{ number_format($subtotal, 3) }} F CFA</span>
                         </div>
                         <div class="flex justify-between">
                             <span class="text-gray-600">Expédition</span>
                             <span class="font-medium">
                                 @if($shippingCost > 0)
-                                    ${{ number_format($shippingCost, 2) }}
+                                    {{ number_format($shippingCost, 3) }} F CFA
                                 @else
                                     <span class="text-green-600">GRATUITE</span>
                                 @endif
@@ -334,7 +334,7 @@
                                 <input type="text"
                                        wire:model="couponCode"
                                        placeholder="Enter code"
-                                       class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                                       class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500">
                                 <button wire:click="applyCoupon"
                                         class="bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-900 transition">
                                     Appliquer
@@ -367,8 +367,8 @@
                     <div class="border-t pt-4">
                         <div class="flex justify-between items-center">
                             <span class="text-lg font-semibold">Total</span>
-                            <span class="text-2xl font-bold text-blue-600">
-                                ${{ number_format($total, 2) }}
+                            <span class="text-2xl font-bold text-yellow-500">
+                                {{ number_format($total, 3) }} F CFA
                             </span>
                         </div>
                     </div>

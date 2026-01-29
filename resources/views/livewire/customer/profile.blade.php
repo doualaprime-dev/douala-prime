@@ -5,7 +5,7 @@
             <h1 class="text-3xl font-bold text-gray-900 mb-2">Mon profil</h1>
             <nav class="text-sm">
                 <ol class="flex items-center gap-2">
-                    <li><a href="{{ route('customer.dashboard') }}" class="text-gray-500 hover:text-blue-600">Mon Compte</a></li>
+                    <li><a href="{{ route('customer.dashboard') }}" class="text-gray-500 hover:text-yellow-600">Mon Compte</a></li>
                     <li class="text-gray-400">/</li>
                     <li class="text-gray-900 font-medium">Profil</li>
                 </ol>
@@ -17,7 +17,7 @@
             <div class="lg:col-span-1">
                 <div class="bg-white rounded-lg shadow-sm p-6">
                     <div class="flex flex-col items-center text-center mb-6">
-                        <div class="w-24 h-24 bg-blue-600 text-white rounded-full flex items-center justify-center text-3xl font-bold mb-4">
+                        <div class="w-24 h-24 bg-yellow-500 text-white rounded-full flex items-center justify-center text-3xl font-bold mb-4">
                             {{ substr(auth('customer')->user()->name, 0, 1) }}
                         </div>
                         <h2 class="text-xl font-bold text-gray-900">{{ auth('customer')->user()->name }}</h2>
@@ -47,7 +47,7 @@
                             <label class="block text-sm font-medium text-gray-700 mb-2">Nom et prénom *</label>
                             <input type="text"
                                    wire:model="name"
-                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500">
                             @error('name') <span class="text-red-600 text-sm">{{ $message }}</span> @enderror
                         </div>
 
@@ -55,7 +55,7 @@
                             <label class="block text-sm font-medium text-gray-700 mb-2">E-mail *</label>
                             <input type="email"
                                    wire:model="email"
-                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500">
                             @error('email') <span class="text-red-600 text-sm">{{ $message }}</span> @enderror
                         </div>
 
@@ -63,7 +63,7 @@
                             <label class="block text-sm font-medium text-gray-700 mb-2">Téléphone</label>
                             <input type="tel"
                                    wire:model="phone"
-                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500">
                             @error('phone') <span class="text-red-600 text-sm">{{ $message }}</span> @enderror
                         </div>
 
@@ -72,13 +72,13 @@
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Date de naissance</label>
                                 <input type="date"
                                        wire:model="date_of_birth"
-                                       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                                       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500">
                             </div>
 
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Genre</label>
                                 <select wire:model="gender"
-                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500">
                                     <option value="">Sélectionner</option>
                                     <option value="male">Masculin</option>
                                     <option value="female">Féminin</option>
@@ -87,7 +87,7 @@
                         </div>
 
                         <button type="submit"
-                                class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition font-semibold">
+                                class="w-full bg-yellow-500 text-white py-2 px-4 rounded-lg hover:bg-yellow-600 transition font-semibold">
                             Mettre à jour le profil
                         </button>
                     </form>
@@ -113,7 +113,7 @@
                             <label class="block text-sm font-medium text-gray-700 mb-2">Mot de passe actuel</label>
                             <input type="password"
                                    wire:model="current_password"
-                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500">
                             @error('current_password') <span class="text-red-600 text-sm">{{ $message }}</span> @enderror
                         </div>
 
@@ -121,7 +121,7 @@
                             <label class="block text-sm font-medium text-gray-700 mb-2">Nouveau mot de passe</label>
                             <input type="password"
                                    wire:model="new_password"
-                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500">
                             @error('new_password') <span class="text-red-600 text-sm">{{ $message }}</span> @enderror
                         </div>
 
@@ -129,11 +129,11 @@
                             <label class="block text-sm font-medium text-gray-700 mb-2">Confirmer le nouveau mot de passe</label>
                             <input type="password"
                                    wire:model="new_password_confirmation"
-                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500">
                         </div>
 
                         <button type="submit"
-                                class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition font-semibold">
+                                class="w-full bg-yellow-500 text-white py-2 px-4 rounded-lg hover:bg-yellow-600 transition font-semibold">
                             Changer le mot de passe
                         </button>
                     </form>
@@ -145,7 +145,7 @@
                         <h2 class="text-xl font-bold text-gray-900">Adresses enregistrées</h2>
                         @if(!$showAddressForm)
                             <button wire:click="addAddress"
-                                    class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition font-medium">
+                                    class="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition font-medium">
                                 + Ajouter une adresse
                             </button>
                         @endif
@@ -194,7 +194,7 @@
                                     <label class="block text-sm font-medium text-gray-700 mb-2">Adresse 2</label>
                                     <input type="text"
                                            wire:model="address_line_2"
-                                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500">
                                 </div>
 
                                 <div class="grid grid-cols-3 gap-4">
@@ -202,7 +202,7 @@
                                         <label class="block text-sm font-medium text-gray-700 mb-2">Ville *</label>
                                         <input type="text"
                                                wire:model="address_city"
-                                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500">
                                         @error('address_city') <span class="text-red-600 text-sm">{{ $message }}</span> @enderror
                                     </div>
 
@@ -210,14 +210,14 @@
                                         <label class="block text-sm font-medium text-gray-700 mb-2">Région</label>
                                         <input type="text"
                                                wire:model="address_state"
-                                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500">
                                     </div>
 
                                     <div>
                                         <label class="block text-sm font-medium text-gray-700 mb-2">Code Postal *</label>
                                         <input type="text"
                                                wire:model="address_postal_code"
-                                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500">
                                         @error('address_postal_code') <span class="text-red-600 text-sm">{{ $message }}</span> @enderror
                                     </div>
                                 </div>
@@ -226,14 +226,14 @@
                                     <label class="flex items-center gap-2">
                                         <input type="checkbox"
                                                wire:model="address_is_default"
-                                               class="w-4 h-4 text-blue-600 rounded">
+                                               class="w-4 h-4 text-yellow-500 rounded">
                                         <span class="text-sm text-gray-700">Définir comme adresse par défaut</span>
                                     </label>
                                 </div>
 
                                 <div class="flex gap-2">
                                     <button type="submit"
-                                            class="flex-1 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition font-semibold">
+                                            class="flex-1 bg-yellow-500 text-white py-2 px-4 rounded-lg hover:bg-yellow-600 transition font-semibold">
                                         Enregistrer l'adresse
                                     </button>
                                     <button type="button"
@@ -257,14 +257,14 @@
                                             <p class="text-gray-600">{{ $address->phone }}</p>
                                             <p class="text-gray-600 mt-2">{{ $address->full_address }}</p>
                                             @if($address->is_default)
-                                                <span class="inline-block mt-2 bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">
+                                                <span class="inline-block mt-2 bg-yellow-100 text-yellow-500 text-xs px-2 py-1 rounded">
                                                     Par Défaut
                                                 </span>
                                             @endif
                                         </div>
                                         <div class="flex gap-2">
                                             <button wire:click="editAddress({{ $address->id }})"
-                                                    class="text-blue-600 hover:text-indigo-700">
+                                                    class="text-yellow-500 hover:text-yellow-600">
                                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                                 </svg>

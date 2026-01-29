@@ -5,7 +5,7 @@
             <h1 class="text-3xl font-bold text-gray-900 mb-2">Mes commandes</h1>
             <nav class="text-sm">
                 <ol class="flex items-center gap-2">
-                    <li><a href="{{ route('customer.dashboard') }}" class="text-gray-500 hover:text-blue-600">Mon Compte</a></li>
+                    <li><a href="{{ route('customer.dashboard') }}" class="text-gray-500 hover:text-yellow-500">Mon Compte</a></li>
                     <li class="text-gray-400">/</li>
                     <li class="text-gray-900 font-medium">Commandes</li>
                 </ol>
@@ -16,7 +16,7 @@
             <div class="flex items-center gap-4">
                 <label class="text-gray-700 font-medium">Filtrer par statut:</label>
                 <select wire:model.live="statusFilter"
-                        class="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500">
+                        class="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-yellow-500">
                     <option value="">Toutes les commandes</option>
                     <option value="pending">En attente</option>
                     <option value="processing">Traitement</option>
@@ -58,7 +58,7 @@
                                         {{ ucfirst($order->status) }}
                                     </span>
                                     <a href="{{ route('customer.orders.show', $order->id) }}"
-                                       class="text-blue-600 hover:text-indigo-700 font-medium">
+                                       class="text-yellow-500 hover:text-yellow-600 font-medium">
                                         Voir les détails →
                                     </a>
                                 </div>
@@ -114,12 +114,12 @@
                 </p>
                 @if($statusFilter)
                     <button wire:click="$set('statusFilter', '')"
-                            class="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition">
+                            class="inline-block bg-yellow-500 text-white px-6 py-2 rounded-lg hover:bg-yellow-500 transition">
                         Afficher toutes les commandes
                     </button>
                 @else
                     <a href="{{ route('products.index') }}"
-                       class="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition">
+                       class="inline-block bg-yellow-500 text-white px-6 py-2 rounded-lg hover:bg-yellow-500 transition">
                         Commencez vos achats
                     </a>
                 @endif
