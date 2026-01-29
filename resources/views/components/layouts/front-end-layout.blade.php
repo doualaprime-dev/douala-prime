@@ -95,8 +95,8 @@
                             </a>
                         </li>
 
-                        @foreach (\App\Models\Category::active()->sorted()->limit(5)->get() as $category)
-                            <li>
+                        @foreach (\App\Models\Category::active()->sorted()->limit(6)->get() as $category)
+                            <li class="hidden lg:block">
                                 <a href="{{ route('products.index', ['category' => $category->slug]) }}" class="text-gray-700 hover:text-yellow-500 font-medium">
                                     {{ $category->name }}
                                 </a>
