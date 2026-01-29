@@ -181,6 +181,13 @@
             </div>
         </footer>
 
+        <!-- Whatsapp -->
+        <div class="whatsapp-chat">
+            <a href="https://web.whatsapp.com/send?phone=237670857204&text=https://douala-prime.com/fr/">
+                <img src="{{ asset('images/whatsapp.png') }}" alt="whatsapp-logo" height="80px" width="80px" />
+            </a>
+        </div>
+
         @livewireScripts
         @filamentScripts
 
