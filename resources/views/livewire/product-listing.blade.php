@@ -157,11 +157,141 @@
                     </div>
 
                     <!-- Mobile Filter Button -->
-                    <button class="lg:hidden bg-gray-100 px-4 py-2 rounded-lg">
+                    <button data-modal-target="modal" data-modal-toggle="modal"  class="lg:hidden bg-gray-100 px-4 py-2 rounded-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
                         </svg>
                     </button>
+
+                    <!-- Main modal -->
+                    <div id="modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                        <div class="relative bg-white p-4 w-full max-w-2xl max-h-full">
+                            <!-- Modal content -->
+                            <div class="relative bg-neutral-primary-soft border border-default rounded-base shadow-sm p-4 md:p-6">
+                                <!-- Modal header -->
+                                <div class="flex items-center justify-between border-b border-default pb-4 md:pb-5">
+                                    <h3 class="text-lg font-medium text-heading">
+                                        Recherche par categories et marques
+                                    </h3>
+                                    <button type="button" class="text-body bg-transparent hover:bg-neutral-tertiary hover:text-heading rounded-base text-sm w-9 h-9 ms-auto inline-flex justify-center items-center" data-modal-hide="modal">
+                                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6"/></svg>
+                                        <span class="sr-only">Close modal</span>
+                                    </button>
+                                </div>
+                                <!-- Modal body -->
+                                <div class="space-y-4 md:space-y-6 py-4 md:py-6">
+                                    <!-- Active filters -->
+                                    @if ($search || $category || $brand || $minPrice || $featured)
+                                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                                            <div class="flex items-center justify-between mb-3">
+                                                <h3 class="font-semibold text-gray-900">Active Filters</h3>
+                                                <button wire:click="clearFilters" class="text-sm text-yellow-500 hover:text-yellow-600">
+                                                    Effacer tout
+                                                </button>
+                                            </div>
+                                            <div class="flex flex-wrap gap-2">
+                                                @if ($search)
+                                                    <span class="inline-flex items-center gap-1 bg-yellow-100 text-yellow-500 px-3 py-1 rounded-full text-sm">
+                                                        Recherche: {{ $search }}
+                                                        <button wire:click="$set('search', '')" class="hover:text-yellow-600">X</button>
+                                                    </span>
+                                                @endif
+
+                                                @if ($category)
+                                                    <span class="inline-flex items-center gap-1 bg-yellow-100 text-yellow-500 px-3 py-1 rounded-full text-sm">
+                                                        Categorie
+                                                        <button wire:click="$set('category', '')" class="hover:text-yellow-600">X</button>
+                                                    </span>
+                                                @endif
+
+                                                @if ($brand)
+                                                    <span class="inline-flex items-center gap-1 bg-yellow-100 text-yellow-500 px-3 py-1 rounded-full text-sm">
+                                                        Marque
+                                                        <button wire:click="$set('brand', '')" class="hover:text-yellow-600">X</button>
+                                                    </span>
+                                                @endif
+
+                                                @if ($featured)
+                                                    <span class="inline-flex items-center gap-1 bg-yellow-100 text-yellow-500 px-3 py-1 rounded-full text-sm">
+                                                        En vedette
+                                                        <button wire:click="$set('featured', '')" class="hover:text-yellow-600">X</button>
+                                                    </span>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    <!-- Categories -->
+                                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                                        <h3 class="font-semibold text-gray-900 mb-3">Categories</h3>
+                                        <ul class="space-y-2 max-h-64 overflow-y-auto">
+                                            <li>
+                                                <button wire:click="$set('category', '')"
+                                                        class="w-full text-left px-3 py-2 rounded {{ !$category ? 'bg-yellow-50 text-yellow-500' : 'text-gray-700' }}">
+                                                    Toutes les Categories
+                                                </button>
+                                            </li>
+                                            @foreach ($categories as $cat)
+                                                <li>
+                                                    <button wire:click="$set('category', '{{ $cat->slug }}')"
+                                                        class="w-full cursor-pointer text-left px-3 py-2 rounded {{ $category === $cat->slug ? 'bg-yellow-50 text-yellow-500' : 'text-gray-700' }}">
+                                                        {{ $cat->name }}
+                                                        <span class="text-sm text-gray-500">{{ $cat->products_count }}</span>
+                                                    </button>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+
+                                    <!-- Brands -->
+                                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                                        <h3 class="font-semibold text-gray-900 mb-3">Marques</h3>
+                                        <ul class="space-y-2 max-h-64 overflow-y-auto">
+                                            <li>
+                                                <button wire:click="$set('brand', '')"
+                                                        class="w-full cursor-pointer text-left px-3 py-2 rounded {{ !$brand ? 'bg-yellow-50 text-yellow-500' : 'text-gray-700' }}">
+                                                    Toutes les marques
+                                                </button>
+                                            </li>
+                                            @foreach ($brands as $br)
+                                                <li>
+                                                    <button wire:click="$set('brand', '{{ $br->slug }}')"
+                                                        class="w-full text-left px-3 py-2 rounded {{ $brand === $br->slug ? 'bg-yellow-50 text-yellow-500' : 'text-gray-700' }}">
+                                                        {{ $br->name }}
+                                                        <span class="text-sm text-gray-500">{{ $br->products_count }}</span>
+                                                    </button>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+
+                                    <!-- Price Range -->
+                                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                        <h3 class="font-semibold text-gray-900 mb-3">Gamme de prix</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-2">
+                                <input  type="number"
+                                        wire:model="minPrice"
+                                        placeholder="Min"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent">
+                                <span class="text-gray-500">-</span>
+                                <input  type="number"
+                                        wire:model="maxPrice"
+                                        placeholder="Max"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent">
+                            </div>
+
+                            <button wire:click="applyPriceFilter"
+                                    class="w-full bg-yellow-500 text-white py-2 px-4 rounded-lg hover:bg-yellow-600 transition">
+                                Appliquer
+                            </button>
+                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
                 {{-- product grid --}}
